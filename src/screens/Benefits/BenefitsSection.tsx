@@ -9,7 +9,7 @@ type PropsT = {
 };
 export const BenefitsSection = ({ title, text, img }: PropsT) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.title} variant="headline-small">
         {title}
       </Text>
