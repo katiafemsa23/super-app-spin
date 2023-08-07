@@ -5,7 +5,7 @@ import styles from '../../styles/spinplus/Benefits/BenefitsInfo.styles';
 // TODO: Replace hardcoded text with retrieved from endpoint
 export const BenefitsInfo = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="benefits-info">
       <View>
         <Text style={styles.pointsText} variant="headline-large">
           10, 657 puntos

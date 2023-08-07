@@ -1,8 +1,8 @@
 import { View, Image, ImageProps } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import styles from '../../styles/spinplus/Benefits/BenefitsCards';
 import Card from '../../components/Card/Card';
 import Text from '../../components/Text/Text';
+import styles from '../../styles/spinplus/Benefits/BenefitsCards';
 
 type BenefitCardT = {
   text: string;
@@ -13,7 +13,7 @@ type BenefitCardT = {
 // TODO: Add correct navigation on onPress action of the card when Movimientos and Cambio de puntos screen is ready
 const BenefitCard = ({ img, text, onPress }: BenefitCardT) => {
   return (
-    <Card style={styles.cardContainer}>
+    <Card style={styles.cardContainer} testID="benefit-card">
       <TouchableOpacity>
         <Image width={124} height={124} source={img} />
         <View style={styles.cardTextContainer}>
@@ -28,7 +28,7 @@ const BenefitCard = ({ img, text, onPress }: BenefitCardT) => {
 
 export const BenefitsCards = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="benefit-cards">
       <BenefitCard
         onPress={() => {}}
         text={`Consulta \n tu historial`}
