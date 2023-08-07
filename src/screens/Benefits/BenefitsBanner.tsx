@@ -18,6 +18,7 @@ export const BenefitsBanner = () => {
       data={data}
       renderItem={renderItem}
       contentContainerStyle={styles.banner}
+      showsHorizontalScrollIndicator={false}
       keyExtractor={(_, index) => `banner-${index}`}
     />
   );
