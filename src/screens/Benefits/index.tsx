@@ -1,4 +1,6 @@
 import { ScrollView } from 'react-native';
+import { BenefitsInfo } from './BenefitsInfo';
+import { BenefitsCards } from './BenefitsCards';
 import { BenefitsSection } from './BenefitsSection';
 import styles from '../../styles/spinplus/Benefits/Benefits.styles';
 
@@ -7,6 +9,8 @@ export const Benefits = () => {
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}>
+      <BenefitsInfo />
+      <BenefitsCards />
       <BenefitsSection
         title="Acumula produtos"
         img={require('../../assets/acumulaProductos.png')}
