@@ -1,8 +1,8 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import SCREENS from './constants';
-import TabNavigator, {TabScreensProps} from './TabNavigator';
-import {Text} from 'react-native';
+import TabNavigator, { TabScreensProps } from './TabNavigator';
+import { Text } from 'react-native';
 import { NavigatorScreenParams } from '@react-navigation/native';
 
 export type StackNavigatorScreenProps = {
