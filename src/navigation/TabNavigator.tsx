@@ -1,7 +1,7 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import SCREENS from './constants';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 
 export type TabScreensProps = {
   [SCREENS.HOME]: undefined;

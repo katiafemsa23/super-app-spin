@@ -1,8 +1,8 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import SCREENS from './constants';
-import TabNavigator, {TabScreensProps} from './TabNavigator';
-import {Text} from 'react-native';
+import TabNavigator, { TabScreensProps } from './TabNavigator';
+import { Text } from 'react-native';
 import { NavigatorScreenParams } from '@react-navigation/native';
 
 export type StackNavigatorScreenProps = {
@@ -19,7 +19,11 @@ const Stack = createStackNavigator<StackNavigatorScreenProps>();
 const MainStackNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen options={{headerShown: false}} component={TabNavigator} name={SCREENS.TAB_NAVIGATOR} />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        component={TabNavigator}
+        name={SCREENS.TAB_NAVIGATOR}
+      />
       <Stack.Screen component={NoopComponent} name={SCREENS.HISTORY} />
       <Stack.Screen component={NoopComponent} name={SCREENS.BALANCE} />
       <Stack.Screen component={NoopComponent} name={SCREENS.POINTS_TICKET} />
