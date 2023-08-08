@@ -7,10 +7,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   cardContainer: {
-    height: 204,
+    minHeight: 204,
   },
   cardTextContainer: {
     padding: 12,
+  },
+  img: {
+    alignSelf: 'center',
   },
   cardText: {
     lineHeight: 20,
