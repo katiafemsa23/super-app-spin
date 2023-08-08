@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { HistoryContext } from '../ history/historyContext';
-import { HISTORY_ACTIONS } from '../ history/constants';
+import { HistoryContext } from '../history/historyContext';
+import { HISTORY_ACTIONS } from '../history/constants';
 
 const useHistory = () => {
   const { dispatch, history } = useContext(HistoryContext);

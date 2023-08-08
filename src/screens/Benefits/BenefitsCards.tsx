@@ -1,5 +1,10 @@
-import { View, Image, useWindowDimensions, ImageProps } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  View,
+  Image,
+  ImageProps,
+  TouchableOpacity,
+  useWindowDimensions,
+} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigatorScreenProps } from '../../navigation';
