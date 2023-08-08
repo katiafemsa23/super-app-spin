@@ -1,8 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { getColors } from '../..';
-import { ThemeVariant } from '../../../theme/types';
-
-const colors = getColors(true, ThemeVariant.SpinPlus);
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +12,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 8,
     alignSelf: 'flex-start',
-    backgroundColor: colors.surface_points,
     paddingHorizontal: 12,
   },
   pointsText: {
@@ -24,7 +19,6 @@ const styles = StyleSheet.create({
   },
   pointsValueText: {
     marginLeft: 8,
-    color: colors.content_points,
     fontWeight: '600',
   },
 });

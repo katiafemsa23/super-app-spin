@@ -3,11 +3,17 @@ import { BenefitsInfo } from './BenefitsInfo';
 import { BenefitsCards } from './BenefitsCards';
 import { BenefitsSection } from './BenefitsSection';
 import styles from '../../styles/spinplus/Benefits/Benefits.styles';
+import useTheme from '../../hooks/useTheme';
 
 export const Benefits = () => {
+  const theme = useTheme();
+
   return (
     <ScrollView
-      style={styles.container}
+      style={[
+        styles.container,
+        { backgroundColor: theme.colors.surface_primary },
+      ]}
       contentContainerStyle={styles.contentContainer}>
       <BenefitsInfo />
       <BenefitsCards />

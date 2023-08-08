@@ -1,9 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
+import { Text } from 'react-native';
 import SCREENS from './constants';
 import BottomTabs from '../components/BottomTabs/BottomTabs';
-import { Text } from 'react-native';
 import Header from '../components/Header/Header';
+import { Benefits } from '../screens/Benefits';
 
 export type TabScreensProps = {
   [SCREENS.HOME]: undefined;
@@ -31,7 +32,7 @@ const TabNavigator = () => {
           title: 'Beneficios',
         }}
         name={SCREENS.BENEFITS}
-        component={NoopComponent}
+        component={Benefits}
       />
       <Tab.Screen
         options={{
