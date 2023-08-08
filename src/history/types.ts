@@ -13,5 +13,6 @@ export type HistoryReducerActions =
 
 export type HistoryContextProps = {
   history: HistoryItem[];
-  dispatch: React.Dispatch<HistoryReducerActions>;
+  addToHistory: (item: HistoryItem) => void;
+  setHistory: (items: HistoryItem[]) => void;
 };
