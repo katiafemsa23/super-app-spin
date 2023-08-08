@@ -1,6 +1,7 @@
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import Text from '../Text/Text';
 
 const tabIcons = [
   {
@@ -72,7 +73,7 @@ const BottomTabs = ({state, descriptors, navigation}: BottomTabBarProps) => {
                 width={24}
               />
             </View>
-            <Text style={styles.label}>
+            <Text variant={'label-extra-small-bold'}>
               {typeof label === 'string' ? label : ''}
             </Text>
           </TouchableOpacity>
@@ -90,15 +91,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: 'rgba(5, 5, 61, 0.04)',
   },
-  label: {
-    fontFamily: 'Inter',
-    fontWeight: 'bold',
-    lineHeight: 16,
-    marginTop: 4,
-    color: '#05053D',
-    letterSpacing: -0.24,
-    fontSize: 12,
-  },
   tabContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -106,6 +98,7 @@ const styles = StyleSheet.create({
   tabIconContainer: {
     paddingVertical: 4,
     paddingHorizontal: 20,
+    marginBottom: 4,
   },
 });
 
