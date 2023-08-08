@@ -1,35 +1,36 @@
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { StackNavigatorScreenProps } from '../navigation';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useCallback } from 'react';
 import SCREENS from '../navigation/constants';
 
 export const useAppNavigation = () => {
-  const {navigate, goBack, ...navigation} = useNavigation<StackNavigationProp<StackNavigatorScreenProps>>();
+  const { navigate, goBack, ...navigation } =
+    useNavigation<StackNavigationProp<StackNavigatorScreenProps>>();
 
   const navigateToBenefits = useCallback(() => {
-    navigate(SCREENS.TAB_NAVIGATOR, {screen: SCREENS.BENEFITS});
-  },[navigate]);
+    navigate(SCREENS.TAB_NAVIGATOR, { screen: SCREENS.BENEFITS });
+  }, [navigate]);
 
   const navigateToHistory = useCallback(() => {
     navigate(SCREENS.HISTORY);
-  },[navigate]); 
+  }, [navigate]);
 
   const navigateToBalance = useCallback(() => {
     navigate(SCREENS.BALANCE);
-  },[navigate]);
+  }, [navigate]);
 
   const navigateToPointsTicket = useCallback(() => {
     navigate(SCREENS.POINTS_TICKET);
-  },[navigate]);
+  }, [navigate]);
 
   const navigateToMovementTicket = useCallback(() => {
     navigate(SCREENS.MOVEMENT_TICKET);
-  },[navigate]);
+  }, [navigate]);
 
   const navigateToSelectAlly = useCallback(() => {
     navigate(SCREENS.SELECT_ALLY);
-  },[navigate]);
+  }, [navigate]);
 
   return {
     goBack,
@@ -39,6 +40,6 @@ export const useAppNavigation = () => {
     navigateToMovementTicket,
     navigateToPointsTicket,
     navigateToSelectAlly,
-    ...navigation
+    ...navigation,
   };
 };
