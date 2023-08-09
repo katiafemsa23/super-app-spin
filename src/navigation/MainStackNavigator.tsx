@@ -5,6 +5,7 @@ import TabNavigator, { TabScreensProps } from './TabNavigator';
 import { Text } from 'react-native';
 import { NavigatorScreenParams } from '@react-navigation/native';
 import HistoryDetailsScreen from '../screens/HistoryDetails';
+import Header from '../components/Header/Header';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
@@ -25,14 +26,41 @@ const MainStackNavigator = () => {
         component={TabNavigator}
         name={SCREENS.TAB_NAVIGATOR}
       />
-      <Stack.Screen component={NoopComponent} name={SCREENS.HISTORY} />
-      <Stack.Screen component={NoopComponent} name={SCREENS.BALANCE} />
-      <Stack.Screen component={NoopComponent} name={SCREENS.POINTS_TICKET} />
       <Stack.Screen
+        options={{
+          header: () => <Header showGoBackButton title="Movimientos" />,
+        }}
+        component={NoopComponent}
+        name={SCREENS.HISTORY}
+      />
+      <Stack.Screen
+        options={{
+          header: () => <Header showGoBackButton title="Cambia tus puntos" />,
+        }}
+        component={NoopComponent}
+        name={SCREENS.BALANCE}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        component={NoopComponent}
+        name={SCREENS.POINTS_TICKET}
+      />
+      <Stack.Screen
+        options={{
+          header: () => (
+            <Header showGoBackButton title="Detalle del movimiento" />
+          ),
+        }}
         component={HistoryDetailsScreen}
         name={SCREENS.MOVEMENT_TICKET}
       />
-      <Stack.Screen component={NoopComponent} name={SCREENS.SELECT_ALLY} />
+      <Stack.Screen
+        options={{
+          header: () => <Header showGoBackButton title="Cambia tus puntos" />,
+        }}
+        component={NoopComponent}
+        name={SCREENS.SELECT_ALLY}
+      />
     </Stack.Navigator>
   );
 };
