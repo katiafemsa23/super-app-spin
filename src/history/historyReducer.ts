@@ -12,7 +12,11 @@ export const historyReducer = (
         points: state.points - action.payload.points,
       };
     case HISTORY_ACTIONS.SET_HISTORY:
-      return { history: [...action.payload], points: state.points };
+      const points = action.payload.reduce(
+        (accumulator, curValue) => accumulator + curValue.points,
+        0,
+      );
+      return { history: [...action.payload], points };
     default:
       return state;
   }
