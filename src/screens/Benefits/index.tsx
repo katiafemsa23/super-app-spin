@@ -1,13 +1,20 @@
 import { ScrollView } from 'react-native';
+import useTheme from '../../hooks/useTheme';
 import { BenefitsInfo } from './BenefitsInfo';
 import { BenefitsCards } from './BenefitsCards';
 import { BenefitsSection } from './BenefitsSection';
+import { BenefitsBanner } from './BenefitsBanner';
 import styles from '../../styles/spinplus/Benefits/Benefits.styles';
 
 export const Benefits = () => {
+  const theme = useTheme();
+
   return (
     <ScrollView
-      style={styles.container}
+      style={[
+        styles.container,
+        { backgroundColor: theme.colors.surface_primary },
+      ]}
       contentContainerStyle={styles.contentContainer}>
       <BenefitsInfo />
       <BenefitsCards />
@@ -26,6 +33,7 @@ export const Benefits = () => {
         img={require('../../assets/sumaAlComprar.png')}
         text="Muy pronto podrás acumular compras y llevarte productos de regalo"
       />
+      <BenefitsBanner />
     </ScrollView>
   );
 };
