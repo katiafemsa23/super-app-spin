@@ -9,15 +9,10 @@ export const historyReducer = (
     case HISTORY_ACTIONS.ADD_TO_HISTORY:
       return {
         history: [...state.history, action.payload],
-        points: state.points,
+        points: state.points - action.payload.points,
       };
     case HISTORY_ACTIONS.SET_HISTORY:
       return { history: [...action.payload], points: state.points };
-    case HISTORY_ACTIONS.USE_POINTS:
-      return {
-        history: [...state.history],
-        points: state.points - action.payload,
-      };
     default:
       return state;
   }

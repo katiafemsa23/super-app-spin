@@ -9,10 +9,6 @@ export type HistoryReducerActions =
   | {
       type: typeof HISTORY_ACTIONS.SET_HISTORY;
       payload: HistoryItem[];
-    }
-  | {
-      type: typeof HISTORY_ACTIONS.USE_POINTS;
-      payload: number;
     };
 
 export type HistoryContextProps = {
