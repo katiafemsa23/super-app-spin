@@ -1,10 +1,10 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { Text } from 'react-native';
-import SCREENS from './constants';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomTabs from '../components/BottomTabs/BottomTabs';
 import Header from '../components/Header/Header';
 import { Benefits } from '../screens/Benefits';
+import SCREENS from './constants';
 
 export type TabScreensProps = {
   [SCREENS.HOME]: undefined;
