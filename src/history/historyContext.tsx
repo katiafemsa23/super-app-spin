@@ -13,6 +13,7 @@ export const HistoryContext = createContext<HistoryContextProps>({
 export const HistoryContextProvider = ({
   children,
 }: React.PropsWithChildren) => {
+  const { data } = useQuery(historyURL);
   const [history, dispatch] = useReducer(historyReducer, []);
 
   const setHistory = (items: HistoryItem[]) => {
@@ -26,8 +27,6 @@ export const HistoryContextProvider = ({
   const value = { history, setHistory, addToHistory };
 
   useEffect(() => {
-    const { data } = useQuery(historyURL);
-
     if (data) setHistory(data);
   }, []);
 

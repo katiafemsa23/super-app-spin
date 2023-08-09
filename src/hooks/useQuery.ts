@@ -26,7 +26,7 @@ export const useQuery = (url: string, options = {}) => {
     }
 
     fetchData();
-  }, [url, options]);
+  }, [url]);
 
   return { data, error, isLoading };
 };
