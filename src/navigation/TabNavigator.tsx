@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import SCREENS from './constants';
-import { Text, View } from 'react-native';
+import BottomTabs from '../components/BottomTabs/BottomTabs';
+import { Text } from 'react-native';
 import Header from '../components/Header/Header';
 
 export type TabScreensProps = {
@@ -15,10 +16,11 @@ const Tab = createBottomTabNavigator<TabScreensProps>();
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator tabBar={BottomTabs}>
       <Tab.Screen
         options={{
           headerShown: false,
+          title: 'Home',
         }}
         name={SCREENS.HOME}
         component={NoopComponent}
@@ -26,20 +28,23 @@ const TabNavigator = () => {
       <Tab.Screen
         options={{
           header: () => <Header title="Beneficios" />,
+          title: 'Beneficios',
         }}
         name={SCREENS.BENEFITS}
         component={NoopComponent}
       />
       <Tab.Screen
         options={{
-          headerShown: false,
+          header: () => <Header title="Cartera" />,
+          title: 'Cartera',
         }}
         name={SCREENS.WALLET}
         component={NoopComponent}
       />
       <Tab.Screen
         options={{
-          headerShown: false,
+          header: () => <Header title="Cuenta" />,
+          title: 'Cuenta',
         }}
         name={SCREENS.ACCOUNT}
         component={NoopComponent}
