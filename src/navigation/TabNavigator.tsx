@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import SCREENS from './constants';
-import { Text } from 'react-native';
 import BottomTabs from '../components/BottomTabs/BottomTabs';
+import { Text, View } from 'react-native';
+import Header from '../components/Header/Header';
 
 export type TabScreensProps = {
   [SCREENS.HOME]: undefined;
@@ -16,10 +17,38 @@ const Tab = createBottomTabNavigator<TabScreensProps>();
 const TabNavigator = () => {
   return (
     <Tab.Navigator tabBar={BottomTabs}>
-      <Tab.Screen options={{title: "Home"}} name={SCREENS.HOME} component={NoopComponent} />
-      <Tab.Screen options={{title: "Beneficios"}} name={SCREENS.BENEFITS} component={NoopComponent} />
-      <Tab.Screen options={{title: "Cartera"}} name={SCREENS.WALLET} component={NoopComponent} />
-      <Tab.Screen options={{title: "Cuenta"}} name={SCREENS.ACCOUNT} component={NoopComponent} />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          title: "Home",
+        }}
+        name={SCREENS.HOME}
+        component={NoopComponent}
+      />
+      <Tab.Screen
+        options={{
+          header: () => <Header title="Beneficios" />,
+          title: "Beneficios",
+        }}
+        name={SCREENS.BENEFITS}
+        component={NoopComponent}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          title: "Cartera",
+        }}
+        name={SCREENS.WALLET}
+        component={NoopComponent}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          title: "Cuenta",
+        }}
+        name={SCREENS.ACCOUNT}
+        component={NoopComponent}
+      />
     </Tab.Navigator>
   );
 };
