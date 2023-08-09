@@ -1,7 +1,8 @@
-import { FlatList, View, Image, ActivityIndicator } from 'react-native';
+import { FlatList, View, Image } from 'react-native';
 import moment from 'moment';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
+import Spinner from '../../components/atoms/Spinner/Spinner';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
 import 'moment/locale/es';
 
@@ -46,7 +47,7 @@ export const MovementList = ({ data, isLoading }: PropsT) => {
   return (
     <View>
       {isLoading ? (
-        <ActivityIndicator />
+        <Spinner />
       ) : (
         <FlatList
           data={data}
