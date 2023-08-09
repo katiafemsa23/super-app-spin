@@ -1,6 +1,6 @@
-import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import Text from '../Text/Text';
 
 const tabIcons = [
@@ -22,11 +22,11 @@ const tabIcons = [
   },
 ];
 
-const BottomTabs = ({state, descriptors, navigation}: BottomTabBarProps) => {
+const BottomTabs = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
-        const {options} = descriptors[route.key];
+        const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
@@ -45,7 +45,7 @@ const BottomTabs = ({state, descriptors, navigation}: BottomTabBarProps) => {
 
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
-            navigation.navigate(route.name, {merge: true});
+            navigation.navigate(route.name, { merge: true });
           }
         };
 
@@ -59,7 +59,7 @@ const BottomTabs = ({state, descriptors, navigation}: BottomTabBarProps) => {
         return (
           <TouchableOpacity
             accessibilityRole="button"
-            accessibilityState={isFocused ? {selected: true} : {}}
+            accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
@@ -73,7 +73,9 @@ const BottomTabs = ({state, descriptors, navigation}: BottomTabBarProps) => {
                 width={24}
               />
             </View>
-            <Text variant={'label-extra-small-bold'}>
+            <Text
+              variant={'label-extra-small-bold'}
+              style={{ fontWeight: '500' }}>
               {typeof label === 'string' ? label : ''}
             </Text>
           </TouchableOpacity>

@@ -1,4 +1,10 @@
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import Text from '../Text/Text';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
@@ -12,7 +18,7 @@ const Header = ({ title, showGoBackButton }: HeaderProps) => {
   const { goBack } = useAppNavigation();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {showGoBackButton ? (
         <TouchableOpacity style={styles.iconContainer} onPress={goBack}>
           <Image
@@ -24,8 +30,10 @@ const Header = ({ title, showGoBackButton }: HeaderProps) => {
       ) : (
         <View style={{ paddingRight: 8 }} />
       )}
-      <Text variant={'headline-small'}>{title}</Text>
-    </View>
+      <Text variant={'headline-small'} style={{ fontWeight: '500' }}>
+        {title}
+      </Text>
+    </SafeAreaView>
   );
 };
 
