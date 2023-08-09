@@ -1,19 +1,14 @@
 import { useContext } from 'react';
-import { HistoryContext } from '../ history/historyContext';
-import { HISTORY_ACTIONS } from '../ history/constants';
+import { HistoryContext } from '../history/historyContext';
 
 const useHistory = () => {
-  const { dispatch, history } = useContext(HistoryContext);
+  const context = useContext(HistoryContext);
 
-  const setHistory = (items: HistoryItem[]) => {
-    dispatch({ type: HISTORY_ACTIONS.SET_HISTORY, payload: items });
-  };
+  if (context === undefined) {
+    throw new Error('useHistory must be used within a HistoryContext');
+  }
 
-  const addToHistory = (item: HistoryItem) => {
-    dispatch({ type: HISTORY_ACTIONS.ADD_TO_HISTORY, payload: item });
-  };
-
-  return { setHistory, addToHistory, history };
+  return context;
 };
 
 export default useHistory;

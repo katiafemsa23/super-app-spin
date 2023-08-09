@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Benefits Benefits Banner renders correctly 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "gap": 16,
+      "paddingVertical": 24,
+    }
+  }
+  horizontal={true}
+  showsHorizontalScrollIndicator={false}
+  style={
+    {
+      "flexGrow": 0,
+    }
+  }
+>
+  <View>
+    <Image
+      source={
+        {
+          "testUri": "../../../src/assets/banner.png",
+        }
+      }
+    />
+    <Image
+      source={
+        {
+          "testUri": "../../../src/assets/banner.png",
+        }
+      }
+    />
+    <Image
+      source={
+        {
+          "testUri": "../../../src/assets/banner.png",
+        }
+      }
+    />
+    <Image
+      source={
+        {
+          "testUri": "../../../src/assets/banner.png",
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;

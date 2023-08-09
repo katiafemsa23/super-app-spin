@@ -1,6 +1,5 @@
-import { Image } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 import styles from '../../styles/spinplus/Benefits/BenefitsBanner.styles';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const data = [
   require('../../assets/banner.png'),
