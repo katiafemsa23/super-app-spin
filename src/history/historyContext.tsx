@@ -10,9 +10,7 @@ export const HistoryContext = createContext<HistoryContextProps>({
   setHistory: (items: HistoryItem[]) => {},
 });
 
-export const HistoryContextProvider = ({
-  children,
-}: React.PropsWithChildren) => {
+export const HistorytProvider = ({ children }: React.PropsWithChildren) => {
   const { data } = useQuery(historyURL);
   const [history, dispatch] = useReducer(historyReducer, []);
 
