@@ -11,7 +11,7 @@ const useHistory = () => {
     throw new Error('useHistory must be used within a HistoryContext');
   }
 
-  const { history, dispatch } = context;
+  const { history, dispatch, points } = context;
 
   const setHistory = (items: HistoryItem[]) => {
     dispatch({ type: HISTORY_ACTIONS.SET_HISTORY, payload: items });
@@ -25,7 +25,7 @@ const useHistory = () => {
     if (data) setHistory(data);
   }, [data]);
 
-  return { addToHistory, setHistory, history };
+  return { addToHistory, setHistory, history, points };
 };
 
 export default useHistory;
