@@ -4,6 +4,7 @@ import SCREENS from './constants';
 import TabNavigator, { TabScreensProps } from './TabNavigator';
 import { Text } from 'react-native';
 import { NavigatorScreenParams } from '@react-navigation/native';
+import HistoryDetailsScreen from '../screens/HistoryDetails';
 import Header from '../components/Header/Header';
 
 export type StackNavigatorScreenProps = {
@@ -11,7 +12,7 @@ export type StackNavigatorScreenProps = {
   [SCREENS.HISTORY]: undefined;
   [SCREENS.BALANCE]: undefined;
   [SCREENS.POINTS_TICKET]: undefined;
-  [SCREENS.MOVEMENT_TICKET]: undefined;
+  [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
   [SCREENS.SELECT_ALLY]: undefined;
 };
 
@@ -50,7 +51,7 @@ const MainStackNavigator = () => {
             <Header showGoBackButton title="Detalle del movimiento" />
           ),
         }}
-        component={NoopComponent}
+        component={HistoryDetailsScreen}
         name={SCREENS.MOVEMENT_TICKET}
       />
       <Stack.Screen
