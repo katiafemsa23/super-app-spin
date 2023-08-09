@@ -9,7 +9,7 @@ const filterData = (data: HistoryItem[], operation: string) =>
 export const MovementsAll = () => {
   return (
     <View style={styles.tabContainer}>
-      <MovementList data={[]} />
+      <MovementList data={[]} isLoading={false} />
     </View>
   );
 };
@@ -19,7 +19,7 @@ export const MovementsGained = () => {
 
   return (
     <View style={styles.tabContainer}>
-      <MovementList data={data} />
+      <MovementList data={data} isLoading={false} />
     </View>
   );
 };
@@ -29,7 +29,7 @@ export const MovementsUsed = () => {
 
   return (
     <View style={styles.tabContainer}>
-      <MovementList data={data} />
+      <MovementList data={data} isLoading={false} />
     </View>
   );
 };

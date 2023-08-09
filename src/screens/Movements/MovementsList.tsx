@@ -1,11 +1,12 @@
-import { FlatList, View, Image } from 'react-native';
+import { FlatList, View, Image, ActivityIndicator } from 'react-native';
 import moment from 'moment';
+import useTheme from '../../hooks/useTheme';
+import Text from '../../components/Text/Text';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
 import 'moment/locale/es';
-import Text from '../../components/Text/Text';
-import useTheme from '../../hooks/useTheme';
 
 type PropsT = {
+  isLoading: boolean;
   data: HistoryItem[];
 };
 
@@ -14,6 +15,7 @@ moment.locale('es');
 const MovementListItem = ({ item }: { item: HistoryItem }) => {
   const theme = useTheme();
   const day = moment(item.date).format('dddd D');
+  const sign = item.operation === 'earned' ? '+' : '-';
   const date = `${day.charAt(0).toUpperCase()}${day.slice(1)}`;
 
   return (
@@ -31,23 +33,27 @@ const MovementListItem = ({ item }: { item: HistoryItem }) => {
           {date}
         </Text>
       </View>
-      <Text style={styles.pointsText}>{`${
-        item.operation === 'earned' ? '+' : '-'
-      }${item.points}`}</Text>
+      <Text style={styles.pointsText}>{`${sign}${item.points}`}</Text>
     </View>
   );
 };
 
-export const MovementList = ({ data }: PropsT) => {
+export const MovementList = ({ data, isLoading }: PropsT) => {
   const renderItem = ({ item }: { item: HistoryItem }) => (
     <MovementListItem item={item} />
   );
 
   return (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={(item, index) => `item-${item.id}${index}`}
-    />
+    <View>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => `item-${item.id}${index}`}
+        />
+      )}
+    </View>
   );
 };
