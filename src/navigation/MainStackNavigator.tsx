@@ -1,11 +1,12 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import SCREENS from './constants';
-import TabNavigator, { TabScreensProps } from './TabNavigator';
 import { Text } from 'react-native';
 import { NavigatorScreenParams } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import TabNavigator, { TabScreensProps } from './TabNavigator';
 import HistoryDetailsScreen from '../screens/HistoryDetails';
 import Header from '../components/Header/Header';
+import BalanceScreen from '../screens/Balance';
+import SCREENS from './constants';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
@@ -37,7 +38,7 @@ const MainStackNavigator = () => {
         options={{
           header: () => <Header showGoBackButton title="Cambia tus puntos" />,
         }}
-        component={NoopComponent}
+        component={BalanceScreen}
         name={SCREENS.BALANCE}
       />
       <Stack.Screen

@@ -5,7 +5,6 @@ import SCREENS from './constants';
 import BottomTabs from '../components/BottomTabs/BottomTabs';
 import Header from '../components/Header/Header';
 import { Benefits } from '../screens/Benefits';
-import BalanceScreen from '../screens/Balance';
 
 export type TabScreensProps = {
   [SCREENS.HOME]: undefined;
@@ -25,7 +24,7 @@ const TabNavigator = () => {
           title: 'Home',
         }}
         name={SCREENS.HOME}
-        component={BalanceScreen}
+        component={NoopComponent}
       />
       <Tab.Screen
         options={{
