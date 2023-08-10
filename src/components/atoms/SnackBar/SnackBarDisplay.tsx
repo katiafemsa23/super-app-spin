@@ -7,6 +7,7 @@ import {
   Platform,
   Pressable,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import useTheme from '../../../hooks/useTheme';
@@ -17,9 +18,6 @@ import DeviceInfo from 'react-native-device-info';
 
 const DEFAULT_ICON_NAME = 'icon-check';
 const CLOSE_ICON_NAME = 'icon-close';
-
-const SHADOW_COLOR_DEFAULT_IOS = '#c9d1d9';
-const SHADOW_COLOR_DEFAULT_ANDROID = '#8b949e';
 
 const OS_VERSION = Platform.Version as number;
 
@@ -112,17 +110,13 @@ const SnackbarDisplay = ({ testID }: ComponentProps) => {
             position === 'bottom'
               ? { bottom: Platform.OS === 'ios' ? iosNavBarHeight : 62 }
               : { top: 50 },
-          ]}
-        >
+          ]}>
           {withIcon && (
             <View style={style.iconContainer} testID="icon-test-id">
-              <Icon
-                testID={`${iconName}-test-id`}
-                name={iconName}
-                iconTypographyStyle={{
-                  color: iconColor,
-                  fontSize: 16,
-                }}
+              <Image
+                source={require('../../../assets/check-filled.png')}
+                height={16}
+                width={16}
               />
             </View>
           )}
@@ -136,8 +130,7 @@ const SnackbarDisplay = ({ testID }: ComponentProps) => {
                     color: textColor,
                   },
                 ]}
-                numberOfLines={2}
-              >
+                numberOfLines={2}>
                 {text}
               </Text>
             </View>
@@ -147,15 +140,13 @@ const SnackbarDisplay = ({ testID }: ComponentProps) => {
               onPress={() => {
                 resetStates();
                 action.onAction && action.onAction();
-              }}
-            >
+              }}>
               {/**
                *  TODO: Se deberá agregar el tipo de variante label-xs que se aplica con la nueva fuente Inter.
                */}
               <Text
                 style={[{ color: actionLabelColor }, style.actionLabel]}
-                variant="extra-small-body"
-              >
+                variant="extra-small-body">
                 {action.label}
               </Text>
             </Button>
@@ -172,8 +163,7 @@ const SnackbarDisplay = ({ testID }: ComponentProps) => {
               onPress={() => {
                 resetStates();
                 onCloseCallback();
-              }}
-            >
+              }}>
               <Icon
                 name={CLOSE_ICON_NAME}
                 iconTypographyStyle={{
@@ -208,16 +198,6 @@ const styles = () =>
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      shadowRadius: 3.5,
-      shadowOpacity: 1,
-      shadowColor:
-        Platform.OS === 'android'
-          ? SHADOW_COLOR_DEFAULT_ANDROID
-          : SHADOW_COLOR_DEFAULT_IOS,
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
     },
     icon: {
       width: 16,
