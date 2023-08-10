@@ -2,14 +2,16 @@
 import { View } from 'react-native';
 import { MovementList } from './MovementsList';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
+import useHistory from '../../hooks/useHistory';
 
 const filterData = (data: HistoryItem[], operation: string) =>
   data.filter(item => item.operation === operation);
 
 export const MovementsAll = () => {
+  const { history } = useHistory();
   return (
     <View style={styles.tabContainer}>
-      <MovementList data={[]} isLoading={false} />
+      <MovementList data={history} isLoading={false} />
     </View>
   );
 };

@@ -1,5 +1,17 @@
 # Super App Spin
 
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Specifications](#specifications)
+- [Justification](#justification)
+- [License](#license)
+- [Credits](#credits)
+- [Badges](#badges)
+
 ## Requirements
 
 - Fork this repo.
