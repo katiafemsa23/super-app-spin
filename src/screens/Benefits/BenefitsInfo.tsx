@@ -1,7 +1,8 @@
 import { View, Image } from 'react-native';
-import Text from '../../components/Text/Text';
-import styles from '../../styles/spinplus/Benefits/BenefitsInfo.styles';
 import useTheme from '../../hooks/useTheme';
+import Text from '../../components/Text/Text';
+import Tag from '../../components/Tag/Tag';
+import styles from '../../styles/spinplus/Benefits/BenefitsInfo.styles';
 
 // TODO: Replace hardcoded text with retrieved from endpoint
 export const BenefitsInfo = () => {
@@ -13,25 +14,7 @@ export const BenefitsInfo = () => {
         <Text style={styles.pointsText} variant="headline-large">
           10, 657 puntos
         </Text>
-        <View
-          style={[
-            styles.pointsContainer,
-            { backgroundColor: theme.colors.surface_points },
-          ]}>
-          <Image
-            width={16}
-            height={16}
-            source={require('../../assets/starburst.png')}
-          />
-          <Text
-            style={[
-              styles.pointsValueText,
-              { color: theme.colors.content_points },
-            ]}
-            variant="label-extra-small-bold">
-            Valen $156.00
-          </Text>
-        </View>
+        <Tag label={'Valen $156.00'} containerStyles={styles.tag} />
       </View>
       <Image
         width={120}
