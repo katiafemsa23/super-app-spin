@@ -4,7 +4,7 @@ const SCREENS = {
   BENEFITS: 'benefits' as const,
   WALLET: 'wallet' as const,
   ACCOUNT: 'account' as const,
-  HISTORY: 'history' as const,
+  MOVEMENTS: 'movements' as const,
   BALANCE: 'balance' as const,
   POINTS_TICKET: 'points-ticket' as const,
   MOVEMENT_TICKET: 'movement-ticket' as const,

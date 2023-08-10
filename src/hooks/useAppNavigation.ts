@@ -1,7 +1,7 @@
+import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigatorScreenProps } from '../navigation';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useCallback } from 'react';
 import SCREENS from '../navigation/constants';
 
 export const useAppNavigation = () => {
@@ -12,8 +12,8 @@ export const useAppNavigation = () => {
     navigate(SCREENS.TAB_NAVIGATOR, { screen: SCREENS.BENEFITS });
   }, [navigate]);
 
-  const navigateToHistory = useCallback(() => {
-    navigate(SCREENS.HISTORY);
+  const navigateToMovements = useCallback(() => {
+    navigate(SCREENS.MOVEMENTS);
   }, [navigate]);
 
   const navigateToBalance = useCallback(() => {
@@ -24,9 +24,17 @@ export const useAppNavigation = () => {
     navigate(SCREENS.POINTS_TICKET);
   }, [navigate]);
 
-  const navigateToMovementTicket = useCallback(() => {
-    navigate(SCREENS.MOVEMENT_TICKET);
-  }, [navigate]);
+  const navigateToMovementTicket = useCallback(
+    ({ entity, date, points, transactionNo }: HistoryItem) => {
+      navigate(SCREENS.MOVEMENT_TICKET, {
+        entity,
+        date,
+        points,
+        transactionNo,
+      });
+    },
+    [navigate],
+  );
 
   const navigateToSelectAlly = useCallback(() => {
     navigate(SCREENS.SELECT_ALLY);
@@ -36,7 +44,7 @@ export const useAppNavigation = () => {
     goBack,
     navigateToBalance,
     navigateToBenefits,
-    navigateToHistory,
+    navigateToMovements,
     navigateToMovementTicket,
     navigateToPointsTicket,
     navigateToSelectAlly,

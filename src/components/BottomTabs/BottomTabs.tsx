@@ -2,6 +2,7 @@ import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import Text from '../Text/Text';
+import useTheme from '../../hooks/useTheme';
 
 const tabIcons = [
   {
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     justifyContent: 'space-evenly',
     borderTopWidth: 1,
+    backgroundColor: '#ffff',
     borderTopColor: 'rgba(5, 5, 61, 0.04)',
   },
   tabContainer: {

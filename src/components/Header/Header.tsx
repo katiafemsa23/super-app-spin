@@ -8,6 +8,7 @@ import {
 import React from 'react';
 import Text from '../Text/Text';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
+import useTheme from '../../hooks/useTheme';
 
 type HeaderProps = {
   showGoBackButton?: boolean;
@@ -15,10 +16,15 @@ type HeaderProps = {
 };
 
 const Header = ({ title, showGoBackButton }: HeaderProps) => {
+  const theme = useTheme();
   const { goBack } = useAppNavigation();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[
+        styles.container,
+        { backgroundColor: theme.colors.surface_primary },
+      ]}>
       {showGoBackButton ? (
         <TouchableOpacity style={styles.iconContainer} onPress={goBack}>
           <Image
