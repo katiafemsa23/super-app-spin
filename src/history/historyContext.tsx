@@ -1,34 +1,22 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { HistoryContextProps } from './types';
 import { historyReducer } from './historyReducer';
-import { HISTORY_ACTIONS } from './constants';
-import { historyURL, useQuery } from '../hooks/useQuery';
 
 export const HistoryContext = createContext<HistoryContextProps>({
+  dispatch: () => {},
   history: [],
-  addToHistory: (item: HistoryItem) => {},
-  setHistory: (items: HistoryItem[]) => {},
+  points: 0,
 });
 
 export const HistorytProvider = ({ children }: React.PropsWithChildren) => {
-  const { data } = useQuery(historyURL);
-  const [history, dispatch] = useReducer(historyReducer, []);
-
-  const setHistory = (items: HistoryItem[]) => {
-    dispatch({ type: HISTORY_ACTIONS.SET_HISTORY, payload: items });
-  };
-
-  const addToHistory = (item: HistoryItem) => {
-    dispatch({ type: HISTORY_ACTIONS.ADD_TO_HISTORY, payload: item });
-  };
-
-  const value = { history, setHistory, addToHistory };
-
-  useEffect(() => {
-    if (data) setHistory(data);
-  }, []);
+  const [{ points, history }, dispatch] = useReducer(historyReducer, {
+    points: 0,
+    history: [],
+  });
 
   return (
-    <HistoryContext.Provider value={value}>{children}</HistoryContext.Provider>
+    <HistoryContext.Provider value={{ history, dispatch, points }}>
+      {children}
+    </HistoryContext.Provider>
   );
 };
