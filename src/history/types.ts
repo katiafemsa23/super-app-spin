@@ -1,4 +1,4 @@
-import React from 'react';
+import { Dispatch } from 'react';
 import { HISTORY_ACTIONS } from './constants';
 
 export type HistoryReducerActions =
@@ -12,7 +12,7 @@ export type HistoryReducerActions =
     };
 
 export type HistoryContextProps = {
+  points: number;
   history: HistoryItem[];
-  addToHistory: (item: HistoryItem) => void;
-  setHistory: (items: HistoryItem[]) => void;
+  dispatch: Dispatch<HistoryReducerActions>;
 };

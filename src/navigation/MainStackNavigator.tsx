@@ -1,16 +1,17 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import SCREENS from './constants';
-import TabNavigator, { TabScreensProps } from './TabNavigator';
 import { Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigatorScreenParams } from '@react-navigation/native';
-import HistoryDetailsScreen from '../screens/HistoryDetails';
+import TabNavigator, { TabScreensProps } from './TabNavigator';
+import MovementsDetailScreen from '../screens/MovementsDetail';
 import Header from '../components/Header/Header';
 import PointsTicketScreen from '../screens/PointsTicket/PointsTicketScreen';
+import SCREENS from './constants';
+import { Movements } from '../screens/Movements';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
-  [SCREENS.HISTORY]: undefined;
+  [SCREENS.MOVEMENTS]: undefined;
   [SCREENS.BALANCE]: undefined;
   [SCREENS.POINTS_TICKET]: { entity: string; points: number };
   [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
@@ -31,8 +32,8 @@ const MainStackNavigator = () => {
         options={{
           header: () => <Header showGoBackButton title="Movimientos" />,
         }}
-        component={NoopComponent}
-        name={SCREENS.HISTORY}
+        component={Movements}
+        name={SCREENS.MOVEMENTS}
       />
       <Stack.Screen
         options={{
@@ -52,7 +53,7 @@ const MainStackNavigator = () => {
             <Header showGoBackButton title="Detalle del movimiento" />
           ),
         }}
-        component={HistoryDetailsScreen}
+        component={MovementsDetailScreen}
         name={SCREENS.MOVEMENT_TICKET}
       />
       <Stack.Screen
