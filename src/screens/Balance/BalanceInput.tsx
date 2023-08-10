@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
-import TextInput from '../../components/atoms/TextInput';
-import Disclaimer from '../../components/Disclaimer/Disclaimer';
 import BalanceTagsContainer from './BalanceTagsContainer';
+import Disclaimer from '../../components/Disclaimer/Disclaimer';
+import NumericTextInput from '../../components/atoms/TextInput/NumericTextInput';
 
 type BalanceInputProps = {
   value: string;
@@ -19,6 +19,7 @@ const BalanceInput = ({
   onChange,
   editable,
 }: BalanceInputProps) => {
+  const symbol = value !== '' ? '$' : '';
   // TODO: Remove hardcoded points when state management is ready
   const currentPoints = 1000;
   const theme = useTheme();
@@ -49,8 +50,8 @@ const BalanceInput = ({
       ) : null}
       {points >= 1000 ? <Text variant="default-body">Otro:</Text> : null}
       <View>
-        <TextInput
-          value={value}
+        <NumericTextInput
+          value={`${symbol}${value}`}
           error={error}
           editable={editable}
           label="Monto en pesos"
