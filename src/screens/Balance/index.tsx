@@ -16,7 +16,10 @@ const BalanceScreen = () => {
 
   const [value, setValue] = useState('');
 
-  const onChangeText = (text: string) => setValue(text);
+  const onChangeText = (text: string) => {
+    const numericText = text.replace(/[^0-9.]/g, '');
+    setValue(numericText);
+  };
 
   return (
     <View
