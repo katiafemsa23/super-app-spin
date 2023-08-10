@@ -25,7 +25,13 @@ const useHistory = () => {
     if (data) setHistory(data);
   }, [data]);
 
-  return { addToHistory, setHistory, history, points };
+  return {
+    addToHistory,
+    setHistory,
+    history,
+    points,
+    pointsValue: (points / 10).toFixed(2),
+  };
 };
 
 export default useHistory;

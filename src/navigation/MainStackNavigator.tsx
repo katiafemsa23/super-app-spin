@@ -9,11 +9,12 @@ import { Movements } from '../screens/Movements';
 import Header from '../components/Header/Header';
 import BalanceScreen from '../screens/Balance';
 import SCREENS from './constants';
+import { SelectAlly } from '../screens/SelectAlly';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
   [SCREENS.MOVEMENTS]: undefined;
-  [SCREENS.BALANCE]: undefined;
+  [SCREENS.BALANCE]: { entity: string };
   [SCREENS.POINTS_TICKET]: { entity: string; points: number };
   [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
   [SCREENS.SELECT_ALLY]: undefined;
@@ -61,7 +62,7 @@ const MainStackNavigator = () => {
         options={{
           header: () => <Header showGoBackButton title="Cambia tus puntos" />,
         }}
-        component={NoopComponent}
+        component={SelectAlly}
         name={SCREENS.SELECT_ALLY}
       />
     </Stack.Navigator>

@@ -4,7 +4,6 @@ import Text from '../../components/Text/Text';
 import { SelectAllyItem } from './SelectAllyItem';
 import styles from '../../styles/spinplus/SelectAlly.styles';
 import { allyData } from './dummy';
-import { ImageProps } from 'react-native-svg';
 
 export type AllyItemT = {
   title: string;

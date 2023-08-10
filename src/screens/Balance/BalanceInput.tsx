@@ -5,6 +5,7 @@ import Text from '../../components/Text/Text';
 import BalanceTagsContainer from './BalanceTagsContainer';
 import Disclaimer from '../../components/Disclaimer/Disclaimer';
 import NumericTextInput from '../../components/atoms/TextInput/NumericTextInput';
+import useHistory from '../../hooks/useHistory';
 
 type BalanceInputProps = {
   value: string;
@@ -19,9 +20,8 @@ const BalanceInput = ({
   onChange,
   editable,
 }: BalanceInputProps) => {
+  const { points: currentPoints } = useHistory();
   const symbol = value !== '' ? '$' : '';
-  // TODO: Remove hardcoded points when state management is ready
-  const currentPoints = 1000;
   const theme = useTheme();
   const [error, setError] = useState('');
 

@@ -16,13 +16,19 @@ export const useAppNavigation = () => {
     navigate(SCREENS.MOVEMENTS);
   }, [navigate]);
 
-  const navigateToBalance = useCallback(() => {
-    navigate(SCREENS.BALANCE);
-  }, [navigate]);
+  const navigateToBalance = useCallback(
+    (entity: string) => {
+      navigate(SCREENS.BALANCE, { entity });
+    },
+    [navigate],
+  );
 
-  const navigateToPointsTicket = useCallback(() => {
-    navigate(SCREENS.POINTS_TICKET);
-  }, [navigate]);
+  const navigateToPointsTicket = useCallback(
+    (entity: string, points: number) => {
+      navigate(SCREENS.POINTS_TICKET, { entity, points });
+    },
+    [navigate],
+  );
 
   const navigateToMovementTicket = useCallback(
     ({ entity, date, points, transactionNo }: HistoryItem) => {

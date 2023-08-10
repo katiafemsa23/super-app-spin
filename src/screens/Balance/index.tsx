@@ -8,13 +8,21 @@ import BalanceHeader from './BalanceHeader';
 import Button from '../../components/Button/Button';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 import { setHistoryItem } from '../../hooks/useQuery';
+import { StackScreenProps } from '@react-navigation/stack';
+import { StackNavigatorScreenProps } from '../../navigation';
+import SCREENS from '../../navigation/constants';
+import useHistory from '../../hooks/useHistory';
 
-const BalanceScreen = () => {
+type BalanceScreenProps = StackScreenProps<
+  StackNavigatorScreenProps,
+  typeof SCREENS.BALANCE
+>;
+
+const BalanceScreen = ({ route }: BalanceScreenProps) => {
   const theme = useTheme();
   const { navigateToPointsTicket } = useAppNavigation();
+  const { history, points } = useHistory();
 
-  // TODO: Remove hardcoded points when state management is ready
-  const points = 1000;
   const isSufficientPoints = points >= 200;
 
   const [value, setValue] = useState('');
@@ -25,19 +33,18 @@ const BalanceScreen = () => {
   };
 
   const handleOnPressContinue = async () => {
-    // TODO: Remove hardcoded data and creates id with history length
     try {
       const response = await setHistoryItem({
-        entity: 'oxxo',
+        entity: route.params.entity,
         points: parseInt(value),
         operation: 'spent',
         transactionNo: uuid.v4().toString(),
-        id: 5,
+        id: history.length + 1,
         date: moment().format('ddd MMM DD YYYY').toString(),
       });
 
       if (response.data) {
-        navigateToPointsTicket();
+        navigateToPointsTicket(route.params.entity, parseInt(value));
       }
     } catch (err) {
       Alert.alert('Algo salió mal, intenta más tarde');
@@ -71,7 +78,6 @@ const BalanceScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
   },
   title: {
     fontWeight: '700',
