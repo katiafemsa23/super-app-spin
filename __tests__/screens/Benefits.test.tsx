@@ -1,9 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import { Benefits } from '../../src/screens/Benefits';
-import { BenefitsInfo } from '../../src/screens/Benefits/BenefitsInfo';
-import { BenefitsCards } from '../../src/screens/Benefits/BenefitsCards';
-import { BenefitsBanner } from '../../src/screens/Benefits/BenefitsBanner';
+import BenefitsInfo from '../../src/screens/Benefits/BenefitsInfo';
+import BenefitsCards from '../../src/screens/Benefits/BenefitsCards';
 
 describe('Benefits', () => {
   it('renders correctly', () => {
@@ -28,13 +27,6 @@ describe('Benefits', () => {
 
       expect(benefitsCards).toBeDefined();
       expect(benefitsCards).toHaveLength(2);
-    });
-  });
-
-  describe('Benefits Banner', () => {
-    it('renders correctly', () => {
-      const { toJSON } = render(<BenefitsBanner />);
-      expect(toJSON()).toMatchSnapshot();
     });
   });
 });

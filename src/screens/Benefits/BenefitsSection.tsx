@@ -7,7 +7,8 @@ type PropsT = {
   title: string;
   img: ImageProps;
 };
-export const BenefitsSection = ({ title, text, img }: PropsT) => {
+
+const BenefitsSection = ({ title, text, img }: PropsT) => {
   return (
     <View>
       <Text style={styles.title} variant="headline-small">
@@ -18,3 +19,5 @@ export const BenefitsSection = ({ title, text, img }: PropsT) => {
     </View>
   );
 };
+
+export default BenefitsSection;

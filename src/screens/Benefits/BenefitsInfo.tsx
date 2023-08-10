@@ -1,10 +1,10 @@
 import { View, Image } from 'react-native';
+import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import styles from '../../styles/spinplus/Benefits/BenefitsInfo.styles';
-import useTheme from '../../hooks/useTheme';
 
 // TODO: Replace hardcoded text with retrieved from endpoint
-export const BenefitsInfo = () => {
+const BenefitsInfo = () => {
   const theme = useTheme();
 
   return (
@@ -41,3 +41,5 @@ export const BenefitsInfo = () => {
     </View>
   );
 };
+
+export default BenefitsInfo;

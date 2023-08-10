@@ -1,10 +1,11 @@
 import { ScrollView } from 'react-native';
 import useTheme from '../../hooks/useTheme';
-import { BenefitsInfo } from './BenefitsInfo';
-import { BenefitsCards } from './BenefitsCards';
-import { BenefitsSection } from './BenefitsSection';
-import { BenefitsBanner } from './BenefitsBanner';
+import BenefitsInfo from './BenefitsInfo';
+import BenefitsCards from './BenefitsCards';
+import BenefitsSection from './BenefitsSection';
+import BannerCarousel from '../../components/molecules/BannerCarousel';
 import styles from '../../styles/spinplus/Benefits/Benefits.styles';
+import { banners } from './dummy';
 
 export const Benefits = () => {
   const theme = useTheme();
@@ -33,7 +34,11 @@ export const Benefits = () => {
         img={require('../../assets/sumaAlComprar.png')}
         text="Muy pronto podrás acumular compras y llevarte productos de regalo"
       />
-      <BenefitsBanner />
+      <BannerCarousel
+        bannerWidth={308}
+        horizontalMargin={0}
+        banners={banners}
+      />
     </ScrollView>
   );
 };
