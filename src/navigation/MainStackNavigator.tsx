@@ -7,6 +7,7 @@ import TabNavigator, { TabScreensProps } from './TabNavigator';
 import MovementsDetailScreen from '../screens/MovementsDetail';
 import Header from '../components/Header/Header';
 import { Movements } from '../screens/Movements';
+import BalanceScreen from '../screens/Balance';
 import SCREENS from './constants';
 
 export type StackNavigatorScreenProps = {
@@ -39,7 +40,7 @@ const MainStackNavigator = () => {
         options={{
           header: () => <Header showGoBackButton title="Cambia tus puntos" />,
         }}
-        component={NoopComponent}
+        component={BalanceScreen}
         name={SCREENS.BALANCE}
       />
       <Stack.Screen
