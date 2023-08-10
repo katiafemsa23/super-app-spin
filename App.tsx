@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigator from './src/navigation/MainStackNavigator';
 import { HistorytProvider } from './src/history/historyContext';
 import ThemeProvider from './src/theme/ThemeProvider';
-import { SnackBar } from './src';
+import { BottomSheet, SnackBar } from './src';
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
           <MainStackNavigator />
         </NavigationContainer>
         <SnackBar.Component />
+        <BottomSheet.Component />
       </HistorytProvider>
     </ThemeProvider>
   );

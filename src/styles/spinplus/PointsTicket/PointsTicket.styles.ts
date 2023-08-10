@@ -53,6 +53,12 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     paddingVertical: 8,
     borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  giftCodeIconContainer: {
+    padding: 12,
   },
   giftCodeLabel: {
     color: '#373764',
@@ -103,6 +109,35 @@ const styles = StyleSheet.create({
   },
   transactionNumber: {
     color: '#69698B',
+  },
+  firstButton: {
+    backgroundColor: '#1723D3',
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  firstButtonLabel: { color: '#FFFFFF', fontWeight: '600' },
+  secondButton: {
+    borderColor: '#1723D3',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
+  secondButtonLabel: { color: '#1723D3', fontWeight: '600' },
+  buttonsContainer: { padding: 16, paddingBottom: 12 },
+  listItemContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderColor: '#E6E6EC',
+    borderBottomWidth: 1,
+  },
+  cardImage: {
+    width: 328,
+    height: 189,
   },
 });
 
