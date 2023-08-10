@@ -26,6 +26,7 @@ const BalanceInput = ({
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // TODO: Add helper to calculate points value
     if (!(Number(value) * 10 > currentPoints)) {
       setError('');
     } else {
