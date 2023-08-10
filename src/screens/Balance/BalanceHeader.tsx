@@ -2,9 +2,11 @@ import { Image, StyleSheet, View } from 'react-native';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import Tag from '../../components/Tag/Tag';
+import useHistory from '../../hooks/useHistory';
 
 const BalanceHeader = () => {
   const theme = useTheme();
+  const { points, pointsValue } = useHistory();
 
   return (
     <View
@@ -14,8 +16,7 @@ const BalanceHeader = () => {
       ]}>
       <View style={styles.titleContainer}>
         <Text variant="headline-large" style={styles.title}>
-          90 puntos{' '}
-          {/* TODO: Pass correct data from state when state management is ready */}
+          {points} puntos
         </Text>
         <Image
           width={24}
@@ -23,8 +24,7 @@ const BalanceHeader = () => {
           source={require('../../assets/alert-info.png')}
         />
       </View>
-      <Tag label="Valen $9.00" />
-      {/* TODO: Pass correct data from state when state management is ready */}
+      <Tag label={`Valen $${pointsValue}`} />
     </View>
   );
 };
