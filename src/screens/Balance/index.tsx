@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
+import moment from 'moment';
+import uuid from 'react-native-uuid';
 import useTheme from '../../hooks/useTheme';
 import BalanceInput from './BalanceInput';
 import BalanceHeader from './BalanceHeader';
 import Button from '../../components/Button/Button';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { setHistoryItem } from '../../hooks/useQuery';
 
 const BalanceScreen = () => {
   const theme = useTheme();
@@ -19,6 +22,26 @@ const BalanceScreen = () => {
   const onChangeText = (text: string) => {
     const numericText = text.replace(/[^0-9.]/g, '');
     setValue(numericText);
+  };
+
+  const handleOnPressContinue = async () => {
+    // TODO: Remove hardcoded data and creates id with history length
+    try {
+      const response = await setHistoryItem({
+        entity: 'oxxo',
+        points: parseInt(value),
+        operation: 'spent',
+        transactionNo: uuid.v4().toString(),
+        id: 5,
+        date: moment().format('ddd MMM DD YYYY').toString(),
+      });
+
+      if (response.data) {
+        navigateToPointsTicket();
+      }
+    } catch (err) {
+      Alert.alert('Algo salió mal, intenta más tarde');
+    }
   };
 
   return (
@@ -37,7 +60,7 @@ const BalanceScreen = () => {
       <View style={styles.btnContainer}>
         <Button
           text="Continuar"
-          onPress={navigateToPointsTicket} // TODO: Pass data needed for Points Ticket screen
+          onPress={handleOnPressContinue} // TODO: Pass data needed for Points Ticket screen
           disabled={!isSufficientPoints || value === ''}
         />
       </View>
