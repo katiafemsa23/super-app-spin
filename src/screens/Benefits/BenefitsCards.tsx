@@ -35,7 +35,7 @@ const BenefitCard = ({ img, text, onPress, width }: BenefitCardT) => (
 const BenefitsCards = () => {
   const { width } = useWindowDimensions();
   const twoColumnsCardWidth = width / 2 - 24;
-  const { navigateToMovements, navigateToBalance } = useAppNavigation();
+  const { navigateToMovements, navigateToSelectAlly } = useAppNavigation();
 
   return (
     <View style={styles.container} testID="benefit-cards">
@@ -48,7 +48,7 @@ const BenefitsCards = () => {
       <BenefitCard
         text="Cambia tus puntos"
         width={twoColumnsCardWidth}
-        onPress={navigateToBalance}
+        onPress={navigateToSelectAlly}
         img={require('../../assets/change-points.png')}
       />
     </View>

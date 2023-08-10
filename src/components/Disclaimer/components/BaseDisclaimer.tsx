@@ -37,8 +37,7 @@ const BaseDisclaimer = ({
             ? backgroundColor
             : theme.colors.BRAND_DEFAULT_LIGHT_100,
         },
-      ]}
-    >
+      ]}>
       <View style={style.inconContainer}>
         <Image
           source={icon}
@@ -66,20 +65,19 @@ const styles = (theme: ThemeType) =>
       alignItems: 'stretch',
       justifyContent: 'space-evenly',
       flexDirection: 'row',
-      width: '90%',
+      width: '100%',
       alignSelf: 'center',
-      borderRadius: 5,
-      paddingRight: 20,
-      paddingLeft: 20,
-      paddingTop: 10,
-      paddingBottom: 10,
+      borderRadius: 8,
+      paddingHorizontal: 16,
+      paddingVertical: 12,
     },
     inconContainer: {
       flex: 1,
+      justifyContent: 'center',
     },
     textContainer: {
       flex: 9,
-      marginLeft: 15,
+      marginLeft: 16,
     },
   });
 

@@ -11,12 +11,12 @@ import {
   TextInput,
   Animated,
   TextInputProps,
+  Image,
 } from 'react-native';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import type { BaseTextInputProps } from './types';
 import type { ThemeContextType } from '../../../theme/types';
 import Text from '../../Text/Text';
-import Icon from '../Icon/Icon';
 import DoneBtn from '../DoneBtn';
 
 const NewBaseTextInput = forwardRef<
@@ -178,8 +178,7 @@ const NewBaseTextInput = forwardRef<
             error && themedStyle.containerErrorStyle,
             style,
             !editable && themedStyle.inputTextDisabled,
-          ]}
-        >
+          ]}>
           {leftSection && (
             <View
               style={[
@@ -187,8 +186,7 @@ const NewBaseTextInput = forwardRef<
                 themedStyle.leftSection,
                 leftSectionStyles,
                 { ...(readOnly && themedStyle.defaultLeftSection) },
-              ]}
-            >
+              ]}>
               {leftSection}
             </View>
           )}
@@ -236,8 +234,7 @@ const NewBaseTextInput = forwardRef<
           <Animated.View
             pointerEvents="none"
             testID={`${testID}-animated`}
-            style={[themedStyle.animatedStyle, animStyle]}
-          >
+            style={[themedStyle.animatedStyle, animStyle]}>
             <Text
               testID={`${testID}-label`}
               // ellipsizeMode={'tail'}
@@ -257,8 +254,7 @@ const NewBaseTextInput = forwardRef<
                 },
                 error ? themedStyle.errorLabel : '',
                 !editable && themedStyle.disabledLabel,
-              ]}
-            >
+              ]}>
               {label}
             </Text>
           </Animated.View>
@@ -270,8 +266,7 @@ const NewBaseTextInput = forwardRef<
                 ...(rightSectionStyle
                   ? { rightSectionStyle }
                   : themedStyle.onFocusRightSection),
-              }}
-            >
+              }}>
               {rightSection}
             </View>
           )}
@@ -279,14 +274,13 @@ const NewBaseTextInput = forwardRef<
         <View style={themedStyle.errorContainer}>
           {error ? (
             <View style={themedStyle.messageContainer}>
-              <Icon
-                iconTypographyStyle={themedStyle.alertIcon}
-                name="icon-alert-error"
+              <Image
+                style={themedStyle.alertIcon}
+                source={require('../../../assets/alert-icon.png')}
               />
               <Text
                 variant="extra-small-body"
-                style={themedStyle.bottomMessageError}
-              >
+                style={themedStyle.bottomMessageError}>
                 {error}
               </Text>
             </View>
@@ -294,8 +288,7 @@ const NewBaseTextInput = forwardRef<
             <View style={themedStyle.messageContainer}>
               <Text
                 variant="extra-small-body"
-                style={themedStyle.bottomMessage}
-              >
+                style={themedStyle.bottomMessage}>
                 {bottomMessage}
               </Text>
             </View>
@@ -422,7 +415,6 @@ const styles = (theme: ThemeContextType) =>
     },
     messageContainer: {
       flexDirection: 'row',
-      paddingHorizontal: 8,
       marginVertical: 8,
     },
     bottomMessage: {
@@ -433,7 +425,7 @@ const styles = (theme: ThemeContextType) =>
     },
     alertIcon: {
       marginRight: 8,
-      color: theme.colors.ui_error,
+      alignSelf: 'center',
     },
     leftSectionPadding: {
       paddingLeft: 8,
