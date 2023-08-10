@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     borderColor: 'rgba(5, 5, 61, 0.08)',
     paddingTop: 32,
-    marginBottom: 25.35,
+    marginBottom: 16,
   },
   imageContainer: {
     top: -72,
@@ -88,6 +88,21 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     padding: 16,
     borderColor: '#E6E6EC',
+  },
+  helpText: {
+    color: '#1723D3',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 16,
+    fontSize: 14,
+  },
+  transactionNumberLabel: {
+    color: '#05053D',
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  transactionNumber: {
+    color: '#69698B',
   },
 });
 

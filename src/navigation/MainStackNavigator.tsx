@@ -6,12 +6,13 @@ import { Text } from 'react-native';
 import { NavigatorScreenParams } from '@react-navigation/native';
 import HistoryDetailsScreen from '../screens/HistoryDetails';
 import Header from '../components/Header/Header';
+import PointsTicketScreen from '../screens/PointsTicket/PointsTicketScreen';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
   [SCREENS.HISTORY]: undefined;
   [SCREENS.BALANCE]: undefined;
-  [SCREENS.POINTS_TICKET]: undefined;
+  [SCREENS.POINTS_TICKET]: { entity: string; points: number };
   [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
   [SCREENS.SELECT_ALLY]: undefined;
 };
@@ -42,7 +43,7 @@ const MainStackNavigator = () => {
       />
       <Stack.Screen
         options={{ headerShown: false }}
-        component={NoopComponent}
+        component={PointsTicketScreen}
         name={SCREENS.POINTS_TICKET}
       />
       <Stack.Screen
