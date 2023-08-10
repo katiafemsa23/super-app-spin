@@ -85,8 +85,7 @@ const BaseBottomSheet = ({
         testID={testID}
         animationType="none"
         transparent
-        visible={open}
-      >
+        visible={open}>
         <Pressable
           testID="outside"
           style={style.outside}
@@ -98,25 +97,22 @@ const BaseBottomSheet = ({
             {
               transform: [{ translateY: customTranslateY }],
             },
-          ]}
-        >
+          ]}>
           <View style={style.content}>
             <View
               style={[style.header, { backgroundColor: headerBackgroundColor }]}
-              onLayout={onLayoutTitleHandler}
-            >
+              onLayout={onLayoutTitleHandler}>
               <View style={style.headerIndicator} />
 
               <View
-                style={
-                  closeIconPosition === 'right' ? style.rowReverse : style.row
-                }
-              >
+                style={[
+                  closeIconPosition === 'right' ? style.rowReverse : style.row,
+                  { alignItems: 'center' },
+                ]}>
                 <TouchableOpacity
                   testID="close-icon"
                   onPress={onCloseHandler}
-                  style={style.headerButton}
-                >
+                  style={style.headerButton}>
                   <Image resizeMode="cover" source={closeIcon} />
                 </TouchableOpacity>
                 {titleComponent}
@@ -131,8 +127,7 @@ const BaseBottomSheet = ({
                     backgroundColor: bodyBackgroundColor,
                   },
                 ]}
-                onLayout={onLayoutBodyHandler}
-              >
+                onLayout={onLayoutBodyHandler}>
                 {children}
                 <ActionsBottomSheet buttons={buttons} />
               </View>
@@ -169,7 +164,7 @@ const styles = (theme: ThemeType) =>
       justifyContent: 'flex-start',
       alignItems: 'center',
       paddingHorizontal: 25,
-      paddingVertical: 25,
+      paddingVertical: 8,
       borderBottomWidth: 0.3,
       borderBottomColor: theme.colors.inverse_content_secondary,
     },
