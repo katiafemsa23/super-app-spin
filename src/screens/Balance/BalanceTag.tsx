@@ -25,7 +25,7 @@ const BalanceTag = ({
     ? theme.colors.surface_secondary
     : theme.colors.surface_informational;
 
-  const handleOnPress = () => onPress(value);
+  const handleOnPress = () => onPress(value.toString());
 
   return (
     <View style={containerStyles}>
