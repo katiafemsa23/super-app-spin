@@ -6,6 +6,9 @@ const URL = 'http://localhost:3001/';
 export const historyURL = `${URL}history`;
 export const historyItemURL = (id: number) => `${URL}history/${id}`;
 
+export const setHistoryItem = (item: HistoryItem) =>
+  axios.post(historyURL, item);
+
 export const useQuery = (url: string, options = {}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
