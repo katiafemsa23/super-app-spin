@@ -29,7 +29,7 @@ export const MovementsGained = () => {
 
 export const MovementsUsed = () => {
   const { history } = useHistory();
-  const data = filterData(history, 'used');
+  const data = filterData(history, 'spent');
 
   return (
     <View style={styles.tabContainer}>

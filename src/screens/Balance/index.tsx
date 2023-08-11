@@ -21,7 +21,7 @@ type BalanceScreenProps = StackScreenProps<
 const BalanceScreen = ({ route }: BalanceScreenProps) => {
   const theme = useTheme();
   const { navigateToPointsTicket } = useAppNavigation();
-  const { history, points } = useHistory();
+  const { history, points, addToHistory } = useHistory();
 
   const isSufficientPoints = points >= 200;
 
@@ -34,14 +34,17 @@ const BalanceScreen = ({ route }: BalanceScreenProps) => {
 
   const handleOnPressContinue = async () => {
     try {
-      const response = await setHistoryItem({
+      const historyItem = {
         entity: route.params.entity,
-        points: parseInt(value),
-        operation: 'spent',
+        points: parseInt(value) * 10,
+        operation: 'spent' as const,
         transactionNo: uuid.v4().toString(),
         id: history.length + 1,
         date: moment().format('ddd MMM DD YYYY').toString(),
-      });
+      };
+
+      const response = await setHistoryItem(historyItem);
+      addToHistory(historyItem);
 
       if (response.data) {
         navigateToPointsTicket(route.params.entity, parseInt(value));

@@ -13,7 +13,11 @@ export const historyReducer = (
       };
     case HISTORY_ACTIONS.SET_HISTORY:
       const points = action.payload.reduce(
-        (accumulator, curValue) => accumulator + curValue.points,
+        (accumulator, curValue) =>
+          accumulator +
+          (curValue.operation === 'earned'
+            ? curValue.points
+            : curValue.points * -1),
         0,
       );
       return { history: [...action.payload], points };
