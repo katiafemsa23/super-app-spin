@@ -1,5 +1,7 @@
+import React from 'react';
 import { ScrollView } from 'react-native';
 import useTheme from '../../hooks/useTheme';
+import useHistory from '../../hooks/useHistory';
 import BenefitsInfo from './BenefitsInfo';
 import BenefitsCards from './BenefitsCards';
 import BenefitsSection from './BenefitsSection';
@@ -12,6 +14,7 @@ export const Benefits = () => {
 
   return (
     <ScrollView
+      testID="benefits-screen"
       style={[
         styles.container,
         { backgroundColor: theme.colors.surface_primary },

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useMemo } from 'react';
 import { formatDate } from '../../utils';
 import { View } from 'react-native';

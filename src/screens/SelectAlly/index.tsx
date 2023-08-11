@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, FlatList, ImageSourcePropType } from 'react-native';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';

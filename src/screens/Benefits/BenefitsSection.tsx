@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, ImageProps, View } from 'react-native';
 import Text from '../../components/Text/Text';
 import styles from '../../styles/spinplus/Benefits/BenefitsSection.styles';
