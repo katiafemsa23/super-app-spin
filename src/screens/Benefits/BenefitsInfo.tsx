@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, Image } from 'react-native';
 import useHistory from '../../hooks/useHistory';
 import Text from '../../components/Text/Text';
@@ -10,7 +11,10 @@ const BenefitsInfo = () => {
   return (
     <View style={styles.container} testID="benefits-info">
       <View>
-        <Text style={styles.pointsText} variant="headline-large">
+        <Text
+          style={styles.pointsText}
+          variant="headline-large"
+          testID="benefits-info-text">
           {points} puntos
         </Text>
         <Tag label={`Valen $${pointsValue}`} containerStyles={styles.tag} />

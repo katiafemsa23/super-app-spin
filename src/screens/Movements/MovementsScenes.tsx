@@ -1,4 +1,5 @@
 // TODO: Consum the correct data once api service ticket is merged
+import React from 'react';
 import { View } from 'react-native';
 import { MovementList } from './MovementsList';
 import styles from '../../styles/spinplus/Movements/Movements.styles';

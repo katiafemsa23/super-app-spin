@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, Image, StyleSheet, ViewStyle } from 'react-native';
 import useTheme from '../../hooks/useTheme';
 import Text from '../Text/Text';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, View } from 'react-native';
 import Card from '../../components/Card/Card';
 import styles from '../../styles/spinplus/MovementsDetail.styles';

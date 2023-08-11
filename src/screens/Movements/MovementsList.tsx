@@ -1,3 +1,4 @@
+import React from 'react';
 import { FlatList, View, Image, TouchableOpacity } from 'react-native';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 import useTheme from '../../hooks/useTheme';

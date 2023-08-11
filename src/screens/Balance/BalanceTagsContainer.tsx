@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, StyleSheet, useWindowDimensions } from 'react-native';
 import BalanceTag from './BalanceTag';
 
