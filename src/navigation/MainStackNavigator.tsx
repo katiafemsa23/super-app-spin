@@ -1,18 +1,20 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigatorScreenParams } from '@react-navigation/native';
+import PointsTicketScreen from '../screens/PointsTicket/PointsTicketScreen';
 import TabNavigator, { TabScreensProps } from './TabNavigator';
 import MovementsDetailScreen from '../screens/MovementsDetail';
 import Header from '../components/Header/Header';
-import SCREENS from './constants';
 import { Movements } from '../screens/Movements';
+import BalanceScreen from '../screens/Balance';
+import SCREENS from './constants';
+import { SelectAlly } from '../screens/SelectAlly';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
   [SCREENS.MOVEMENTS]: undefined;
-  [SCREENS.BALANCE]: undefined;
-  [SCREENS.POINTS_TICKET]: undefined;
+  [SCREENS.BALANCE]: { entity: string };
+  [SCREENS.POINTS_TICKET]: { entity: string; points: number };
   [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
   [SCREENS.SELECT_ALLY]: undefined;
 };
@@ -38,12 +40,12 @@ const MainStackNavigator = () => {
         options={{
           header: () => <Header showGoBackButton title="Cambia tus puntos" />,
         }}
-        component={NoopComponent}
+        component={BalanceScreen}
         name={SCREENS.BALANCE}
       />
       <Stack.Screen
         options={{ headerShown: false }}
-        component={NoopComponent}
+        component={PointsTicketScreen}
         name={SCREENS.POINTS_TICKET}
       />
       <Stack.Screen
@@ -59,13 +61,11 @@ const MainStackNavigator = () => {
         options={{
           header: () => <Header showGoBackButton title="Cambia tus puntos" />,
         }}
-        component={NoopComponent}
+        component={SelectAlly}
         name={SCREENS.SELECT_ALLY}
       />
     </Stack.Navigator>
   );
 };
-
-const NoopComponent = () => <Text>Screen in process</Text>;
 
 export default MainStackNavigator;
