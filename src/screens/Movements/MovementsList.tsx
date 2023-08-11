@@ -4,14 +4,7 @@ import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import Spinner from '../../components/atoms/Spinner/Spinner';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
-
-type DayProps = 'numeric' | '2-digit' | undefined;
-type WeekdayProps = 'long' | 'short' | 'narrow' | undefined;
-
-type DateOptionsProps = {
-  day: DayProps;
-  weekday: WeekdayProps;
-};
+import { DateOptionsProps, formatDate, formatStringDate } from '../../utils';
 
 const options: DateOptionsProps = {
   weekday: 'long',
@@ -23,19 +16,17 @@ type MovementListItemProps = {
   data: HistoryItem[];
 };
 
-const formatDate = (value: string) => {
-  const date = new Date(value);
-  const formatter = new Intl.DateTimeFormat('es-ES', options);
-  const formattedDate = formatter.format(date).replace(',', '');
+const movementsListItemFormatDate = (value: string) => {
+  const date = formatStringDate(value, options, 'es-ES');
 
-  return `${formattedDate.charAt(0).toUpperCase()}${formattedDate.slice(1)}`;
+  return `${date.charAt(0).toUpperCase()}${date.slice(1)}`;
 };
 
 const MovementListItem = ({ item }: { item: HistoryItem }) => {
   const theme = useTheme();
   const { navigateToMovementTicket } = useAppNavigation();
 
-  const formattedDate = formatDate(item.date);
+  const formattedDate = movementsListItemFormatDate(item.date);
   const sign = item.operation === 'earned' ? '+' : '-';
 
   return (

@@ -4,7 +4,7 @@ import { MovementList } from './MovementsList';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
 import useHistory from '../../hooks/useHistory';
 
-const filterData = (data: HistoryItem[], operation: string) =>
+const filterData = (data: HistoryItem[], operation: 'earned' | 'spent') =>
   data.filter(item => item.operation === operation);
 
 export const MovementsAll = () => {
