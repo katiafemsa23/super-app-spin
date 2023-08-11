@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import uuid from 'react-native-uuid';
 import useTheme from '../../hooks/useTheme';
 import useHistory from '../../hooks/useHistory';
@@ -27,6 +28,7 @@ const dateOptions: DateOptionsProps = {
 
 const BalanceScreen = ({ route }: BalanceScreenProps) => {
   const theme = useTheme();
+  const insets = useSafeAreaInsets();
   const { navigateToPointsTicket } = useAppNavigation();
   const { history, points, addToHistory } = useHistory();
 
@@ -76,7 +78,7 @@ const BalanceScreen = ({ route }: BalanceScreenProps) => {
         onChange={onChangeText}
         editable={isSufficientPoints}
       />
-      <View style={styles.btnContainer}>
+      <View style={[styles.btnContainer, { marginBottom: insets.bottom }]}>
         <Button
           text="Continuar"
           onPress={handleOnPressContinue}
