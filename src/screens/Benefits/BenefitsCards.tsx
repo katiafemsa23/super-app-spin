@@ -32,7 +32,7 @@ const BenefitCard = ({ img, text, onPress, width }: BenefitCardT) => (
   </View>
 );
 
-export const BenefitsCards = () => {
+const BenefitsCards = () => {
   const { width } = useWindowDimensions();
   const twoColumnsCardWidth = width / 2 - 24;
   const { navigateToMovements, navigateToBalance } = useAppNavigation();
@@ -54,3 +54,5 @@ export const BenefitsCards = () => {
     </View>
   );
 };
+
+export default BenefitsCards;
