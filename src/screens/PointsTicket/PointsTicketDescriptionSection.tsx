@@ -23,7 +23,7 @@ const PointsTicketDescriptionSection = ({ points }: Props) => {
           Valen:
         </Text>
         <Text variant="default-body-bold" style={styles.value}>
-          {points / 10}
+          ${(points / 10).toFixed(2)}
         </Text>
       </View>
       <View style={styles.valueLabelContainer}>
