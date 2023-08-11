@@ -12,9 +12,7 @@ Developed by:
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
 - [Specifications](#specifications)
-- [Justification](#justification)
 - [License](#license)
 - [Credits](#credits)
 - [Badges](#badges)
@@ -123,16 +121,12 @@ yarn run android
 yarn run json-server
 ```
 
-## Configuration
-
 ## Specifications
 
 - [React Native](https://reactnative.dev/) Framework for building mobile apps using React. Create native apps for Android, iOS, and more.
 - [React Navigation](https://reactnavigation.org/) Library for navigation and routing in React Native apps.
 - [Axios](https://axios-http.com/es/docs/intro) HTTP client for making network requests.
 - [react-native-uuid](https://www.npmjs.com/package/react-native-uuid) Library for generate a Universally Unique IDentifier (UUID).
-
-## Justification
 
 ## License
 
