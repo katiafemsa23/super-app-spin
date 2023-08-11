@@ -1,25 +1,42 @@
 import { FlatList, View, Image, TouchableOpacity } from 'react-native';
-import moment from 'moment';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import Spinner from '../../components/atoms/Spinner/Spinner';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
-import 'moment/locale/es';
-import { useAppNavigation } from '../../hooks/useAppNavigation';
 
-type PropsT = {
+type DayProps = 'numeric' | '2-digit' | undefined;
+type WeekdayProps = 'long' | 'short' | 'narrow' | undefined;
+
+type DateOptionsProps = {
+  day: DayProps;
+  weekday: WeekdayProps;
+};
+
+const options: DateOptionsProps = {
+  weekday: 'long',
+  day: 'numeric',
+};
+
+type MovementListItemProps = {
   isLoading: boolean;
   data: HistoryItem[];
 };
 
-moment.locale('es');
+const formatDate = (value: string) => {
+  const date = new Date(value);
+  const formatter = new Intl.DateTimeFormat('es-ES', options);
+  const formattedDate = formatter.format(date).replace(',', '');
+
+  return `${formattedDate.charAt(0).toUpperCase()}${formattedDate.slice(1)}`;
+};
 
 const MovementListItem = ({ item }: { item: HistoryItem }) => {
   const theme = useTheme();
   const { navigateToMovementTicket } = useAppNavigation();
-  const day = moment(item.date).format('dddd D');
+
+  const formattedDate = formatDate(item.date);
   const sign = item.operation === 'earned' ? '+' : '-';
-  const date = `${day.charAt(0).toUpperCase()}${day.slice(1)}`;
 
   return (
     <TouchableOpacity
@@ -34,7 +51,7 @@ const MovementListItem = ({ item }: { item: HistoryItem }) => {
         <Text
           variant="small-body"
           style={[{ color: theme.colors.content_secondary }]}>
-          {date}
+          {formattedDate}
         </Text>
       </View>
       <Text style={styles.pointsText}>{`${sign}${item.points}`}</Text>
@@ -42,7 +59,7 @@ const MovementListItem = ({ item }: { item: HistoryItem }) => {
   );
 };
 
-export const MovementList = ({ data, isLoading }: PropsT) => {
+export const MovementList = ({ data, isLoading }: MovementListItemProps) => {
   const renderItem = ({ item }: { item: HistoryItem }) => (
     <MovementListItem item={item} />
   );
