@@ -5,7 +5,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import SCREENS from '../navigation/constants';
 
 export const useAppNavigation = () => {
-  const { navigate, goBack, ...navigation } =
+  const { navigate, goBack, replace, ...navigation } =
     useNavigation<StackNavigationProp<StackNavigatorScreenProps>>();
 
   const navigateToBenefits = useCallback(() => {
@@ -25,9 +25,9 @@ export const useAppNavigation = () => {
 
   const navigateToPointsTicket = useCallback(
     (entity: string, points: number) => {
-      navigate(SCREENS.POINTS_TICKET, { entity, points });
+      replace(SCREENS.POINTS_TICKET, { entity, points });
     },
-    [navigate],
+    [replace],
   );
 
   const navigateToMovementTicket = useCallback(
@@ -48,6 +48,7 @@ export const useAppNavigation = () => {
 
   return {
     goBack,
+    replace,
     navigateToBalance,
     navigateToBenefits,
     navigateToMovements,

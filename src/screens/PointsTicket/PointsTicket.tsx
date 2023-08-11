@@ -1,5 +1,5 @@
 import { View, SafeAreaView } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../styles/spinplus/PointsTicket/PointsTicket.styles';
 import { PointsTicketCard } from './PointsTicketCard';
 import useTheme from '../../hooks/useTheme';
@@ -10,6 +10,7 @@ import { TouchableOpacity } from '@gorhom/bottom-sheet';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 import BottomSheet from '../../components/atoms/BottomSheet';
 import PointsModal from './PointsModal';
+import SnackBar from '../../components/atoms/SnackBar';
 
 type PointsTicketProps = {
   points: number;
@@ -25,6 +26,15 @@ const PointsTicket = ({ points, entity }: PointsTicketProps) => {
       title: '¿Cómo usar un certificado de regalo?',
       children: <PointsModal />,
     });
+
+  useEffect(() => {
+    SnackBar.show({
+      text: '¡Listo! Cambiaste tus puntos',
+      variant: 'info',
+      withIcon: true,
+      duration: 5000,
+    });
+  }, []);
 
   return (
     <SafeAreaView style={{ backgroundColor: colors.surface_primary, flex: 1 }}>
