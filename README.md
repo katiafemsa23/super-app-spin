@@ -27,6 +27,14 @@ This screen provides
 
 ### Movements (Movimientos)
 
+Screen with three tabs that displays data by All (Todos), Earned (Ganados) and Used (Usados).
+The Movement List item displays:
+
+- Image of the Entity
+- Detail of the Movement
+- Date that the movement was realized
+- Points that was gained (+) or used (-)
+
 ### Change your points (Cambia tus puntos)
 
 ## Installation
