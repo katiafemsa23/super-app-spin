@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigatorScreenParams } from '@react-navigation/native';
 import PointsTicketScreen from '../screens/PointsTicket/PointsTicketScreen';
@@ -68,7 +67,5 @@ const MainStackNavigator = () => {
     </Stack.Navigator>
   );
 };
-
-const NoopComponent = () => <Text>Screen in process</Text>;
 
 export default MainStackNavigator;
