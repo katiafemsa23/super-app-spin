@@ -1,7 +1,6 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { render, screen } from '@testing-library/react-native';
-import { BottomSheet, ThemeProvider } from '../../src';
+import { ThemeProvider } from '../../src';
 import PointsTicketScreen from '../../src/screens/PointsTicket/PointsTicketScreen';
 
 describe('Points ticket screen', () => {
@@ -18,14 +17,7 @@ describe('Points ticket screen', () => {
       },
     };
 
-    render(
-      <ThemeProvider>
-        <NavigationContainer>
-          <PointsTicketScreen {...props} />
-          <BottomSheet.Component />
-        </NavigationContainer>
-      </ThemeProvider>,
-    );
+    render(<PointsTicketScreen {...props} />, { wrapper: ThemeProvider });
   });
 
   it('should render correctly a movement where points was earned', () => {

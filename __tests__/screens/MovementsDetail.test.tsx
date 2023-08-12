@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { render, screen } from '@testing-library/react-native';
 import { ThemeProvider } from '../../src';
 import MovementsDetailScreen from '../../src/screens/MovementsDetail';
@@ -18,13 +17,7 @@ describe('Movements Detail screen', () => {
       },
     };
 
-    render(
-      <ThemeProvider>
-        <NavigationContainer>
-          <MovementsDetailScreen {...props} />
-        </NavigationContainer>
-      </ThemeProvider>,
-    );
+    render(<MovementsDetailScreen {...props} />, { wrapper: ThemeProvider });
   });
 
   it('should render correctly a movement where points was earned', () => {

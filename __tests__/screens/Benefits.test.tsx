@@ -1,18 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { render, screen } from '@testing-library/react-native';
 import { Benefits } from '../../src/screens/Benefits';
 import { ThemeProvider } from '../../src';
 
 describe('Benefits', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider>
-        <NavigationContainer>
-          <Benefits />
-        </NavigationContainer>
-      </ThemeProvider>,
-    );
+    render(<Benefits />, { wrapper: ThemeProvider });
   });
 
   it('should render correctly', () => {

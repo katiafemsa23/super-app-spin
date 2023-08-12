@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import {
   render,
   screen,
@@ -10,13 +9,7 @@ import { ThemeProvider } from '../../src';
 
 describe('Movements', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider>
-        <NavigationContainer>
-          <Movements />
-        </NavigationContainer>
-      </ThemeProvider>,
-    );
+    render(<Movements />, { wrapper: ThemeProvider });
   });
 
   it('should render correctly', () => {
