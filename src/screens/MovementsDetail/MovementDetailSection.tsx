@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { formatDate } from '../../utils';
+import { DateOptionsProps, formatDate } from '../../utils';
 import { View } from 'react-native';
 import Text from '../../components/Text/Text';
 import styles from '../../styles/spinplus/MovementsDetail.styles';
@@ -9,9 +9,15 @@ type PropsT = {
   points: number;
 };
 
+const options: DateOptionsProps = {
+  day: 'numeric',
+  month: 'numeric',
+  year: 'numeric',
+};
+
 export const MovementDetailSection = ({ date, points }: PropsT) => {
   const positivePoints = points >= 0;
-  const formattedDate = useMemo(() => formatDate(date), [date]);
+  const formattedDate = useMemo(() => formatDate(date, options), [date]);
 
   return (
     <>

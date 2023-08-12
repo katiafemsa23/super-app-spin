@@ -1,27 +1,36 @@
 import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
-import moment from 'moment';
+import { StackScreenProps } from '@react-navigation/stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import uuid from 'react-native-uuid';
 import useTheme from '../../hooks/useTheme';
+import useHistory from '../../hooks/useHistory';
+import { setHistoryItem } from '../../hooks/useQuery';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { DateOptionsProps, formatStringDate } from '../../utils';
+import { StackNavigatorScreenProps } from '../../navigation';
 import BalanceInput from './BalanceInput';
 import BalanceHeader from './BalanceHeader';
 import Button from '../../components/Button/Button';
-import { useAppNavigation } from '../../hooks/useAppNavigation';
-import { setHistoryItem } from '../../hooks/useQuery';
-import { StackScreenProps } from '@react-navigation/stack';
-import { StackNavigatorScreenProps } from '../../navigation';
 import SCREENS from '../../navigation/constants';
-import useHistory from '../../hooks/useHistory';
 
 type BalanceScreenProps = StackScreenProps<
   StackNavigatorScreenProps,
   typeof SCREENS.BALANCE
 >;
 
+const dateOptions: DateOptionsProps = {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  weekday: 'short',
+};
+
 const BalanceScreen = ({ route }: BalanceScreenProps) => {
   const theme = useTheme();
+  const insets = useSafeAreaInsets();
   const { navigateToPointsTicket } = useAppNavigation();
-  const { history, points } = useHistory();
+  const { history, points, addToHistory } = useHistory();
 
   const isSufficientPoints = points >= 200;
 
@@ -33,15 +42,20 @@ const BalanceScreen = ({ route }: BalanceScreenProps) => {
   };
 
   const handleOnPressContinue = async () => {
+    const date = formatStringDate(new Date().toString(), dateOptions);
+
     try {
-      const response = await setHistoryItem({
-        entity: route.params.entity,
-        points: parseInt(value),
-        operation: 'spent',
-        transactionNo: uuid.v4().toString(),
+      const historyItem = {
+        date,
         id: history.length + 1,
-        date: moment().format('ddd MMM DD YYYY').toString(),
-      });
+        operation: 'spent' as const,
+        entity: route.params.entity,
+        points: parseInt(value) * 10,
+        transactionNo: uuid.v4().toString(),
+      };
+
+      const response = await setHistoryItem(historyItem);
+      addToHistory(historyItem);
 
       if (response.data) {
         navigateToPointsTicket(route.params.entity, parseInt(value));
@@ -64,10 +78,10 @@ const BalanceScreen = ({ route }: BalanceScreenProps) => {
         onChange={onChangeText}
         editable={isSufficientPoints}
       />
-      <View style={styles.btnContainer}>
+      <View style={[styles.btnContainer, { marginBottom: insets.bottom }]}>
         <Button
           text="Continuar"
-          onPress={handleOnPressContinue} // TODO: Pass data needed for Points Ticket screen
+          onPress={handleOnPressContinue}
           disabled={!isSufficientPoints || value === ''}
         />
       </View>

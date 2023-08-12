@@ -1,8 +1,7 @@
-import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React from 'react';
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import Text from '../Text/Text';
-import useTheme from '../../hooks/useTheme';
 
 const tabIcons = [
   {
@@ -23,9 +22,16 @@ const tabIcons = [
   },
 ];
 
-const BottomTabs = ({ state, descriptors, navigation }: BottomTabBarProps) => {
+const BottomTabs = ({
+  state,
+  descriptors,
+  navigation,
+  insets,
+}: BottomTabBarProps) => {
+  const paddingBottom = insets.bottom > 0 ? insets.bottom : 12;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom }]}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
