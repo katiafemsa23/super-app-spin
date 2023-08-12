@@ -19,7 +19,10 @@ const options: DateOptionsProps = {
 
 export const MovementDetailSection = ({ date, points, operation }: PropsT) => {
   const positivePoints = operation === 'earned';
-  const formattedDate = useMemo(() => formatDate(date), [date]);
+  const formattedDate = useMemo(
+    () => formatDate(date, options, 'es-ES'),
+    [date],
+  );
 
   return (
     <>
