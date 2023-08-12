@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { HistoryContext } from '../history/historyContext';
 import { historyURL, useQuery } from '../hooks/useQuery';
 import { HISTORY_ACTIONS } from '../history/constants';
+import { HistoryItem } from '../types';
 
 const useHistory = () => {
   const context = useContext(HistoryContext);

@@ -21,6 +21,7 @@ export const SelectAlly = () => {
 
   return (
     <View
+      testID="select-ally-screen"
       style={[
         styles.container,
         { backgroundColor: theme.colors.surface_primary },
@@ -30,6 +31,7 @@ export const SelectAlly = () => {
       </Text>
       <FlatList
         data={allyData}
+        testID="allies-list"
         renderItem={renderItem}
         contentContainerStyle={styles.cardsList}
         keyExtractor={(item, index) => `${item}-${index}`}
