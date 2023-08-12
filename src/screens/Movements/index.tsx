@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { SceneMap, TabView } from 'react-native-tab-view';
+import useHistory from '../../hooks/useHistory';
 import useTheme from '../../hooks/useTheme';
 import TabBar from '../../components/TabBar/TabBar';
-import {
-  MovementsAll,
-  MovementsGained,
-  MovementsUsed,
-} from './MovementsScenes';
+import { MovementsAll } from './MovementsScenes';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
-import useHistory from '@sas/hooks/useHistory';
 
 const movementsRoutes = [
   { key: 'all', title: 'Todos' },
