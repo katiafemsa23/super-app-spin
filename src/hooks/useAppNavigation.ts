@@ -25,8 +25,8 @@ export const useAppNavigation = () => {
   );
 
   const navigateToPointsTicket = useCallback(
-    (entity: string, points: number) => {
-      replace(SCREENS.POINTS_TICKET, { entity, points });
+    (item: HistoryItem) => {
+      replace(SCREENS.POINTS_TICKET, item);
     },
     [replace],
   );

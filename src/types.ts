@@ -1,8 +1,10 @@
 export type HistoryItem = {
-  entity: string;
-  date: string;
-  points: number;
-  operation: 'earned' | 'spent';
-  transactionNo: string;
   id: number;
+  date: string;
+  entity: string;
+  points: number;
+  giftCode?: string;
+  expiryDate?: string;
+  transactionNo: string;
+  operation: 'earned' | 'spent';
 };

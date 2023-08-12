@@ -58,7 +58,7 @@ const BalanceScreen = ({ route }: BalanceScreenProps) => {
       addToHistory(historyItem);
 
       if (response.data) {
-        navigateToPointsTicket(route.params.entity, parseInt(value));
+        navigateToPointsTicket(response.data);
       }
     } catch (err) {
       Alert.alert('Algo salió mal, intenta más tarde');
@@ -67,6 +67,7 @@ const BalanceScreen = ({ route }: BalanceScreenProps) => {
 
   return (
     <View
+      testID="balance-screen"
       style={[
         styles.container,
         { backgroundColor: theme.colors.surface_primary },

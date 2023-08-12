@@ -15,7 +15,7 @@ export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
   [SCREENS.MOVEMENTS]: undefined;
   [SCREENS.BALANCE]: { entity: string };
-  [SCREENS.POINTS_TICKET]: { entity: string; points: number };
+  [SCREENS.POINTS_TICKET]: HistoryItem;
   [SCREENS.MOVEMENT_TICKET]: HistoryItem;
   [SCREENS.SELECT_ALLY]: undefined;
 };

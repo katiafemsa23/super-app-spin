@@ -14,7 +14,6 @@ type PropsT = {
 
 export const MovementCard = ({ entity, points, operation }: PropsT) => {
   const positivePoints = operation === 'earned';
-  console.log(operation, positivePoints);
 
   return (
     <Card style={styles.cardContainer} testID="movement-card">

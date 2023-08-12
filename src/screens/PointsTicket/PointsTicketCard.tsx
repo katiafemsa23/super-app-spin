@@ -14,7 +14,7 @@ type PropsT = {
 
 export const PointsTicketCard = ({ entity, giftCode }: PropsT) => {
   return (
-    <Card style={styles.cardContainer}>
+    <Card style={styles.cardContainer} testID="points-ticket-card">
       <View style={styles.imageContainer}>
         <Image source={placeholderImage} style={styles.image} />
       </View>
@@ -30,7 +30,11 @@ export const PointsTicketCard = ({ entity, giftCode }: PropsT) => {
           <Text variant="label-extra-small" style={styles.giftCodeLabel}>
             Certificado de regalo
           </Text>
-          <Text variant="label-default-bold" style={styles.giftCode} selectable>
+          <Text
+            variant="label-default-bold"
+            style={styles.giftCode}
+            selectable
+            testID="gift-certificate">
             {giftCode}
           </Text>
         </View>
