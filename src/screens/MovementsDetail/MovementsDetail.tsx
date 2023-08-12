@@ -7,24 +7,30 @@ import { MovementCard } from './MovementCard';
 import { MovementDetailSection } from './MovementDetailSection';
 
 type MovementsDetailProps = {
-  item: Omit<HistoryItem, 'id' | 'operation'>;
+  item: HistoryItem;
 };
 
 const MovementsDetail = ({
-  item: { date, entity, points, transactionNo },
+  item: { date, entity, points, transactionNo, operation },
 }: MovementsDetailProps) => {
   const theme = useTheme();
 
   return (
     <SafeAreaView
+      testID="movements-detail"
       style={{ backgroundColor: theme.colors.surface_primary, flex: 1 }}>
       <View style={styles.firstSectionContainer}>
-        <MovementCard entity={entity} points={points} />
-        <MovementDetailSection date={date} points={points} />
+        <MovementCard entity={entity} points={points} operation={operation} />
+        <MovementDetailSection
+          date={date}
+          points={points}
+          operation={operation}
+        />
       </View>
       <View style={styles.transactionContainer}>
         <Text variant="label-default">Número de transacción</Text>
         <Text
+          testID="transaction-no"
           variant="label-default"
           style={{ color: theme.colors.content_tertiary, marginTop: 8 }}>
           {transactionNo}

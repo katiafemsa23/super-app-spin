@@ -15,7 +15,7 @@ export type StackNavigatorScreenProps = {
   [SCREENS.MOVEMENTS]: undefined;
   [SCREENS.BALANCE]: { entity: string };
   [SCREENS.POINTS_TICKET]: { entity: string; points: number };
-  [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
+  [SCREENS.MOVEMENT_TICKET]: HistoryItem;
   [SCREENS.SELECT_ALLY]: undefined;
 };
 

@@ -31,13 +31,8 @@ export const useAppNavigation = () => {
   );
 
   const navigateToMovementTicket = useCallback(
-    ({ entity, date, points, transactionNo }: HistoryItem) => {
-      navigate(SCREENS.MOVEMENT_TICKET, {
-        entity,
-        date,
-        points,
-        transactionNo,
-      });
+    (item: HistoryItem) => {
+      navigate(SCREENS.MOVEMENT_TICKET, item);
     },
     [navigate],
   );
