@@ -4,7 +4,11 @@ import { SceneMap, TabView } from 'react-native-tab-view';
 import useHistory from '../../hooks/useHistory';
 import useTheme from '../../hooks/useTheme';
 import TabBar from '../../components/TabBar/TabBar';
-import { MovementsAll } from './MovementsScenes';
+import {
+  MovementsAll,
+  MovementsGained,
+  MovementsUsed,
+} from './MovementsScenes';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
 
 const movementsRoutes = [
@@ -23,8 +27,8 @@ export const Movements = () => {
 
   const renderScene = SceneMap({
     all: () => <MovementsAll data={history} isLoading={isLoading} />,
-    gained: () => <MovementsAll data={history} isLoading={isLoading} />,
-    used: () => <MovementsAll data={history} isLoading={isLoading} />,
+    gained: () => <MovementsGained data={history} isLoading={isLoading} />,
+    used: () => <MovementsUsed data={history} isLoading={isLoading} />,
   });
 
   return (
