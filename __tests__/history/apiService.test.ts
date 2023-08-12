@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import {
   getHistory,
   getHistoryItem,
@@ -5,16 +6,15 @@ import {
 } from '../../src/history/apiService';
 
 describe('Api Service', () => {
-  let data = null;
+  let data: AxiosResponse | null = null;
 
   beforeEach(async () => {
-    data = await getHistory();
+    data = (await getHistory()) as AxiosResponse;
   });
 
   describe('Get history', () => {
     it('return history data successfully', async () => {
-      data = await getHistory();
-      expect(data.status).toBe(200);
+      expect(data?.status).toBe(200);
     });
   });
 
@@ -26,7 +26,7 @@ describe('Api Service', () => {
         points: 150,
         operation: 'earned',
         transactionNo: '5dced89c-2b6e-4a1c-a715-c19b0b30',
-        id: data.length + 1,
+        id: data?.data.length + 1 || 1,
       };
 
       const response = await postHistory(item);
