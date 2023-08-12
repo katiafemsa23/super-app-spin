@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { HistoryItem } from '../../types';
 import { MovementList } from './MovementsList';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, SafeAreaView } from 'react-native';
+import { HistoryItem } from '../../types';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
-import styles from '../../styles/spinplus/MovementsDetail.styles';
 import { MovementCard } from './MovementCard';
 import { MovementDetailSection } from './MovementDetailSection';
+import styles from '../../styles/spinplus/MovementsDetail.styles';
 
 type MovementsDetailProps = {
   item: HistoryItem;

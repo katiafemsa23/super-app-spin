@@ -1,11 +1,12 @@
 import React from 'react';
 import { FlatList, View, Image, TouchableOpacity } from 'react-native';
+import { HistoryItem } from '../../types';
+import { DateOptionsProps, formatStringDate } from '../../utils';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import Spinner from '../../components/atoms/Spinner/Spinner';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
-import { DateOptionsProps, formatDate, formatStringDate } from '../../utils';
 
 const options: DateOptionsProps = {
   weekday: 'long',

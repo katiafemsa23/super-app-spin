@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigatorScreenProps } from '../navigation';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigatorScreenProps } from '../navigation';
 import SCREENS from '../navigation/constants';
+import { HistoryItem } from '../types';
 
 export const useAppNavigation = () => {
   const { navigate, goBack, replace, ...navigation } =

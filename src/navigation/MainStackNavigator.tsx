@@ -7,8 +7,9 @@ import MovementsDetailScreen from '../screens/MovementsDetail';
 import Header from '../components/Header/Header';
 import { Movements } from '../screens/Movements';
 import BalanceScreen from '../screens/Balance';
-import SCREENS from './constants';
 import { SelectAlly } from '../screens/SelectAlly';
+import SCREENS from './constants';
+import { HistoryItem } from '../types';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;

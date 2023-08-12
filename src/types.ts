@@ -1,4 +1,4 @@
-type HistoryItem = {
+export type HistoryItem = {
   entity: string;
   date: string;
   points: number;
