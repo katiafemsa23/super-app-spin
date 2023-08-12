@@ -15,12 +15,12 @@ describe('Benefits', () => {
     );
   });
 
-  it('renders correctly', () => {
+  it('should render correctly', () => {
     const benefitsScreen = screen.getByTestId('benefits-screen');
     expect(benefitsScreen).toBeDefined();
   });
 
-  it('renders benefits information correctly', () => {
+  it('should render benefits information correctly', () => {
     const benefitsInfo = screen.getByTestId('benefits-info');
     const pointsText = screen.getByTestId('benefits-info-text');
 
@@ -28,7 +28,7 @@ describe('Benefits', () => {
     expect(pointsText).toBeDefined();
   });
 
-  it('renders benefits navigation cards correctly', () => {
+  it('should render benefits navigation cards correctly', () => {
     const consultaTuHistorialCard = screen.getByTestId(
       'consulta-tu-historial-card',
     );
@@ -38,7 +38,7 @@ describe('Benefits', () => {
     expect(cambiaTusPuntosCard).toBeDefined();
   });
 
-  it('renders benefits sections correctly', () => {
+  it('should render benefits sections correctly', () => {
     const section1 = screen.getByTestId('section-1');
     const section2 = screen.getByTestId('section-2');
     const section3 = screen.getByTestId('section-3');
@@ -48,7 +48,7 @@ describe('Benefits', () => {
     expect(section3).toBeDefined();
   });
 
-  it('renders benefits carousel correctly', () => {
+  it('should render benefits carousel correctly', () => {
     const section1 = screen.getByTestId('section-1');
     const section2 = screen.getByTestId('section-2');
     const section3 = screen.getByTestId('section-3');

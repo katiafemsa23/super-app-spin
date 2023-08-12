@@ -9,6 +9,7 @@ import {
   MovementsUsed,
 } from './MovementsScenes';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
+import useHistory from '@sas/hooks/useHistory';
 
 const movementsRoutes = [
   { key: 'all', title: 'Todos' },
@@ -16,26 +17,29 @@ const movementsRoutes = [
   { key: 'used', title: 'Usados' },
 ];
 
-const renderScene = SceneMap({
-  all: MovementsAll,
-  gained: MovementsGained,
-  used: MovementsUsed,
-});
-
 export const Movements = () => {
   const theme = useTheme();
+  const { history, isLoading } = useHistory();
   const layout = useWindowDimensions();
 
   const [index, setIndex] = useState(0);
   const [routes] = useState(movementsRoutes);
 
+  const renderScene = SceneMap({
+    all: () => <MovementsAll data={history} isLoading={isLoading} />,
+    gained: () => <MovementsAll data={history} isLoading={isLoading} />,
+    used: () => <MovementsAll data={history} isLoading={isLoading} />,
+  });
+
   return (
     <View
+      testID="movements-screen"
       style={[
         styles.container,
         { backgroundColor: theme.colors.surface_primary },
       ]}>
       <TabView
+        testID="tab-view"
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}

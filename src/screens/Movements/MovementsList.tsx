@@ -59,7 +59,7 @@ export const MovementList = ({ data, isLoading }: MovementListItemProps) => {
   return (
     <View>
       {isLoading ? (
-        <Spinner />
+        <Spinner testID="loader" />
       ) : (
         <FlatList
           data={data}

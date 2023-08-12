@@ -5,7 +5,7 @@ import { HISTORY_ACTIONS } from '../history/constants';
 
 const useHistory = () => {
   const context = useContext(HistoryContext);
-  const { data } = useQuery(historyURL);
+  const { data, isLoading } = useQuery(historyURL);
 
   if (context === undefined) {
     throw new Error('useHistory must be used within a HistoryContext');
@@ -30,6 +30,7 @@ const useHistory = () => {
     setHistory,
     history,
     points,
+    isLoading,
     pointsValue: (points / 10).toFixed(2),
   };
 };
