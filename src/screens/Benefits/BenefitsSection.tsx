@@ -6,12 +6,13 @@ import styles from '../../styles/spinplus/Benefits/BenefitsSection.styles';
 type PropsT = {
   text: string;
   title: string;
+  testID: string;
   img: ImageProps;
 };
 
-const BenefitsSection = ({ title, text, img }: PropsT) => {
+const BenefitsSection = ({ title, text, img, testID }: PropsT) => {
   return (
-    <View>
+    <View testID={testID}>
       <Text style={styles.title} variant="headline-small">
         {title}
       </Text>

@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigatorScreenProps } from '../navigation';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigatorScreenProps } from '../navigation';
 import SCREENS from '../navigation/constants';
+import { HistoryItem } from '../types';
 
 export const useAppNavigation = () => {
   const { navigate, goBack, replace, ...navigation } =
@@ -24,20 +25,15 @@ export const useAppNavigation = () => {
   );
 
   const navigateToPointsTicket = useCallback(
-    (entity: string, points: number) => {
-      replace(SCREENS.POINTS_TICKET, { entity, points });
+    (item: HistoryItem) => {
+      replace(SCREENS.POINTS_TICKET, item);
     },
     [replace],
   );
 
   const navigateToMovementTicket = useCallback(
-    ({ entity, date, points, transactionNo }: HistoryItem) => {
-      navigate(SCREENS.MOVEMENT_TICKET, {
-        entity,
-        date,
-        points,
-        transactionNo,
-      });
+    (item: HistoryItem) => {
+      navigate(SCREENS.MOVEMENT_TICKET, item);
     },
     [navigate],
   );

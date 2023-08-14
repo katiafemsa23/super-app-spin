@@ -17,7 +17,11 @@ const BenefitsInfo = () => {
           testID="benefits-info-text">
           {points} puntos
         </Text>
-        <Tag label={`Valen $${pointsValue}`} containerStyles={styles.tag} />
+        <Tag
+          testID="amount-value"
+          label={`Valen $${pointsValue}`}
+          containerStyles={styles.tag}
+        />
       </View>
       <Image
         width={120}

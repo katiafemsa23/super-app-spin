@@ -2,10 +2,11 @@ import { useContext, useEffect } from 'react';
 import { HistoryContext } from '../history/historyContext';
 import { historyURL, useQuery } from '../hooks/useQuery';
 import { HISTORY_ACTIONS } from '../history/constants';
+import { HistoryItem } from '../types';
 
 const useHistory = () => {
   const context = useContext(HistoryContext);
-  const { data } = useQuery(historyURL);
+  const { data, isLoading } = useQuery(historyURL);
 
   if (context === undefined) {
     throw new Error('useHistory must be used within a HistoryContext');
@@ -30,6 +31,7 @@ const useHistory = () => {
     setHistory,
     history,
     points,
+    isLoading,
     pointsValue: (points / 10).toFixed(2),
   };
 };

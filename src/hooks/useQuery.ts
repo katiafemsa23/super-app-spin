@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { HistoryItem } from '../types';
 
 // Update if needed to the correct url in order to run json-server
 const URL = 'http://localhost:3001/';
