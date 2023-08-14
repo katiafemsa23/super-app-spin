@@ -1,17 +1,20 @@
+import React from 'react';
 import { View, Image, StyleSheet, ViewStyle } from 'react-native';
 import useTheme from '../../hooks/useTheme';
 import Text from '../Text/Text';
 
 type TagProps = {
   label: string;
+  testID: string;
   containerStyles?: ViewStyle;
 };
 
-function Tag({ label, containerStyles }: TagProps) {
+function Tag({ label, containerStyles, testID }: TagProps) {
   const theme = useTheme();
 
   return (
     <View
+      testID={testID}
       style={[
         styles.pointsContainer,
         containerStyles,

@@ -10,9 +10,7 @@ type PointsTicketProps = StackScreenProps<
 >;
 
 const PointsTicketScreen = ({ route }: PointsTicketProps) => {
-  return (
-    <PointsTicket entity={route.params.entity} points={route.params.points} />
-  );
+  return <PointsTicket item={route.params} />;
 };
 
 export default PointsTicketScreen;

@@ -1,3 +1,4 @@
+import { HistoryItem } from '../types';
 import { HISTORY_ACTIONS } from './constants';
 import { HistoryReducerActions } from './types';
 

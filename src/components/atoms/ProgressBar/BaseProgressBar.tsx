@@ -28,8 +28,7 @@ function BaseProgressBar({
     <Text
       variant={'caption'}
       testID={'text-steps-testID'}
-      style={[themedStyle.textSteps, themedStyle.textStepsLight]}
-    >
+      style={[themedStyle.textSteps, themedStyle.textStepsLight]}>
       <Text variant={'caption-medium'} style={themedStyle.textSteps}>
         {percent.currentStep}
       </Text>
@@ -52,7 +51,7 @@ function BaseProgressBar({
         <View
           style={themedStyle.progressBar}
           testID="grayBar"
-          onLayout={(event) => {
+          onLayout={event => {
             const { x, width } = event.nativeEvent.layout;
             setProgressBarWidth(x + width);
           }}
@@ -81,7 +80,7 @@ const AnimatedBar = ({
   const progressPercentage = percent.currentStep / percent.totalStep;
 
   const transformXPosition = useCallback(
-    (thePercentage) => {
+    (thePercentage: any) => {
       const newXTranslation = -(
         progressBarWidth -
         progressBarWidth * thePercentage
@@ -122,8 +121,7 @@ const AnimatedBar = ({
           width: '100%',
           transform: [{ translateX: barXTransform }],
         },
-      }}
-    >
+      }}>
       <LinearGradient
         useAngle
         angle={179}

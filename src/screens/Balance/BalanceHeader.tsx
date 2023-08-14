@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
@@ -10,12 +11,16 @@ const BalanceHeader = () => {
 
   return (
     <View
+      testID="balance-header"
       style={[
         styles.container,
         { borderBottomColor: theme.colors.surface_tertiary },
       ]}>
       <View style={styles.titleContainer}>
-        <Text variant="headline-large" style={styles.title}>
+        <Text
+          variant="headline-large"
+          style={styles.title}
+          testID="points-text">
           {points} puntos
         </Text>
         <Image
@@ -24,7 +29,7 @@ const BalanceHeader = () => {
           source={require('../../assets/alert-info.png')}
         />
       </View>
-      <Tag label={`Valen $${pointsValue}`} />
+      <Tag label={`Valen $${pointsValue}`} testID="amount-value" />
     </View>
   );
 };

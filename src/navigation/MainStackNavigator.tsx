@@ -7,15 +7,16 @@ import MovementsDetailScreen from '../screens/MovementsDetail';
 import Header from '../components/Header/Header';
 import { Movements } from '../screens/Movements';
 import BalanceScreen from '../screens/Balance';
-import SCREENS from './constants';
 import { SelectAlly } from '../screens/SelectAlly';
+import SCREENS from './constants';
+import { HistoryItem } from '../types';
 
 export type StackNavigatorScreenProps = {
   [SCREENS.TAB_NAVIGATOR]: NavigatorScreenParams<TabScreensProps>;
   [SCREENS.MOVEMENTS]: undefined;
   [SCREENS.BALANCE]: { entity: string };
-  [SCREENS.POINTS_TICKET]: { entity: string; points: number };
-  [SCREENS.MOVEMENT_TICKET]: Omit<HistoryItem, 'id' | 'operation'>;
+  [SCREENS.POINTS_TICKET]: HistoryItem;
+  [SCREENS.MOVEMENT_TICKET]: HistoryItem;
   [SCREENS.SELECT_ALLY]: undefined;
 };
 

@@ -1,39 +1,39 @@
-// TODO: Consum the correct data once api service ticket is merged
+import React from 'react';
 import { View } from 'react-native';
+import { HistoryItem } from '../../types';
 import { MovementList } from './MovementsList';
 import styles from '../../styles/spinplus/Movements/Movements.styles';
-import useHistory from '../../hooks/useHistory';
+
+type MovementsSceneProps = {
+  isLoading: boolean;
+  data: HistoryItem[];
+};
 
 const filterData = (data: HistoryItem[], operation: 'earned' | 'spent') =>
   data.filter(item => item.operation === operation);
 
-export const MovementsAll = () => {
-  const { history } = useHistory();
+export const MovementsAll = ({ data, isLoading }: MovementsSceneProps) => (
+  <View style={styles.tabContainer} testID="tab-all">
+    <MovementList data={data} isLoading={isLoading} />
+  </View>
+);
+
+export const MovementsGained = ({ data, isLoading }: MovementsSceneProps) => {
+  const history = filterData(data, 'earned');
+
   return (
-    <View style={styles.tabContainer}>
-      <MovementList data={history} isLoading={false} />
+    <View style={styles.tabContainer} testID="tab-earned">
+      <MovementList data={history} isLoading={isLoading} />
     </View>
   );
 };
 
-export const MovementsGained = () => {
-  const { history } = useHistory();
-  const data = filterData(history, 'earned');
+export const MovementsUsed = ({ data, isLoading }: MovementsSceneProps) => {
+  const history = filterData(data, 'spent');
 
   return (
-    <View style={styles.tabContainer}>
-      <MovementList data={data} isLoading={false} />
-    </View>
-  );
-};
-
-export const MovementsUsed = () => {
-  const { history } = useHistory();
-  const data = filterData(history, 'spent');
-
-  return (
-    <View style={styles.tabContainer}>
-      <MovementList data={data} isLoading={false} />
+    <View style={styles.tabContainer} testID="tab-spent">
+      <MovementList data={history} isLoading={isLoading} />
     </View>
   );
 };

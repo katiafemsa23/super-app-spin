@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import Card from '../../components/Card/Card';
 import Text from '../../components/Text/Text';

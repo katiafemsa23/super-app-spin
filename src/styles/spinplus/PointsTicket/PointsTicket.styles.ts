@@ -110,25 +110,15 @@ const styles = StyleSheet.create({
   transactionNumber: {
     color: '#69698B',
   },
-  firstButton: {
-    backgroundColor: '#1723D3',
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    marginBottom: 12,
+  buttonLabel: {
+    fontWeight: '600',
   },
-  firstButtonLabel: { color: '#FFFFFF', fontWeight: '600' },
-  secondButton: {
-    borderColor: '#1723D3',
-    borderWidth: 1,
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    alignItems: 'center',
+  buttonsContainer: {
+    padding: 16,
+    paddingBottom: 12,
+    gap: 14,
+    marginBottom: 16,
   },
-  secondButtonLabel: { color: '#1723D3', fontWeight: '600' },
-  buttonsContainer: { padding: 16, paddingBottom: 12 },
   listItemContainer: {
     paddingVertical: 8,
     paddingHorizontal: 16,

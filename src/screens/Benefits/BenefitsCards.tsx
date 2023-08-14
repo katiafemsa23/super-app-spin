@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   View,
   Image,
@@ -13,12 +14,13 @@ import styles from '../../styles/spinplus/Benefits/BenefitsCards';
 type BenefitCardT = {
   text: string;
   width: number;
+  testID: string;
   img: ImageProps;
   onPress: () => void;
 };
 
-const BenefitCard = ({ img, text, onPress, width }: BenefitCardT) => (
-  <View style={{ width }}>
+const BenefitCard = ({ img, text, onPress, width, testID }: BenefitCardT) => (
+  <View style={{ width }} testID={testID}>
     <Card style={styles.cardContainer} testID="benefit-card">
       <TouchableOpacity onPress={onPress}>
         <Image style={styles.img} width={124} height={124} source={img} />
@@ -43,11 +45,13 @@ const BenefitsCards = () => {
         onPress={navigateToMovements}
         width={twoColumnsCardWidth}
         text={`Consulta \n tu historial`}
+        testID="consulta-tu-historial-card"
         img={require('../../assets/benefits-history.png')}
       />
       <BenefitCard
         text="Cambia tus puntos"
         width={twoColumnsCardWidth}
+        testID="cambia-tus-puntos-card"
         onPress={navigateToSelectAlly}
         img={require('../../assets/change-points.png')}
       />
