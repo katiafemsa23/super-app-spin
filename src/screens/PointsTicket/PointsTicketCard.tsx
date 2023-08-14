@@ -1,9 +1,11 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import Card from '../../components/Card/Card';
-import styles from '../../styles/spinplus/PointsTicket/PointsTicket.styles';
-import Text from '../../components/Text/Text';
+import Clipboard from '@react-native-clipboard/clipboard';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Card from '../../components/Card/Card';
+import Text from '../../components/Text/Text';
+import SnackBar from '../../components/atoms/SnackBar';
+import styles from '../../styles/spinplus/PointsTicket/PointsTicket.styles';
 
 const placeholderImage = require('../../assets/oxxo.png');
 
@@ -13,6 +15,17 @@ type PropsT = {
 };
 
 export const PointsTicketCard = ({ entity, giftCode }: PropsT) => {
+  const copyToClipboard = () => {
+    Clipboard.setString(giftCode);
+
+    SnackBar.show({
+      text: 'Copied to clipboard!',
+      variant: 'info',
+      withIcon: true,
+      duration: 5000,
+    });
+  };
+
   return (
     <Card style={styles.cardContainer} testID="points-ticket-card">
       <View style={styles.imageContainer}>
@@ -38,7 +51,9 @@ export const PointsTicketCard = ({ entity, giftCode }: PropsT) => {
             {giftCode}
           </Text>
         </View>
-        <TouchableOpacity style={styles.giftCodeIconContainer}>
+        <TouchableOpacity
+          style={styles.giftCodeIconContainer}
+          onPress={copyToClipboard}>
           <Image source={require('../../assets/copy-icon.png')} />
         </TouchableOpacity>
       </View>
