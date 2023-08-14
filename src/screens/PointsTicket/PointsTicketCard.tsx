@@ -15,8 +15,8 @@ type PropsT = {
 };
 
 export const PointsTicketCard = ({ entity, giftCode }: PropsT) => {
-  const copyToClipboard = (value: string) => {
-    Clipboard.setString(value);
+  const copyToClipboard = () => {
+    Clipboard.setString(giftCode);
 
     SnackBar.show({
       text: 'Copied to clipboard!',
@@ -53,7 +53,7 @@ export const PointsTicketCard = ({ entity, giftCode }: PropsT) => {
         </View>
         <TouchableOpacity
           style={styles.giftCodeIconContainer}
-          onPress={() => copyToClipboard(giftCode)}>
+          onPress={copyToClipboard}>
           <Image source={require('../../assets/copy-icon.png')} />
         </TouchableOpacity>
       </View>
