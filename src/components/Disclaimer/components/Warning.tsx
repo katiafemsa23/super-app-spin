@@ -14,9 +14,9 @@ const Warning = ({ text, testID }: Props) => {
     <BaseDisclaimer
       text={text}
       testID={testID}
-      backgroundColor={theme.colors.WARNING_LIGHT}
+      backgroundColor={theme.colors.surface_paused}
       textColor={'black'}
-      iconColor={theme.colors.WARNING_DARK}
+      iconColor={theme.colors.content_paused}
     />
   );
 };
